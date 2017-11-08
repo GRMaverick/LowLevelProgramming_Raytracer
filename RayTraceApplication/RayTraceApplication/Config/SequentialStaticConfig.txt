@@ -2,7 +2,7 @@ ResolutionWidth	1920
 ResolutionHeight	1080
 FPS	60
 MaxFrames	100
-MP4OutputPath	C:\\Users\\Maverick\\Documents\\Visual Studio 2015\\Projects\\RayTraceApplication\\RayTraceApplication\\Output\\SequentialStaticApp\\MP4\\
-PPMOutputPath	C:\\Users\\Maverick\\Documents\\Visual Studio 2015\\Projects\\RayTraceApplication\\RayTraceApplication\\Output\\SequentialStaticApp\\PPM\\
-ReportPath	C:\\Users\\Maverick\\Documents\\Visual Studio 2015\\Projects\\RayTraceApplication\\RayTraceApplication\\Output\\SequentialStaticApp\\Reports\\
+MP4OutputPath	C:\\Users\\Maverick\\Documents\\Visual Studio 2015\\Projects\\RaytracingApplication\\RayTraceApplication\\RayTraceApplication\\Output\\SequentialStaticApp\\MP4\\
+PPMOutputPath	C:\\Users\\Maverick\\Documents\\Visual Studio 2015\\Projects\\RaytracingApplication\\RayTraceApplication\\RayTraceApplication\\Output\\SequentialStaticApp\\PPM\\
+ReportPath	C:\\Users\\Maverick\\Documents\\Visual Studio 2015\\Projects\\RaytracingApplication\\RayTraceApplication\\RayTraceApplication\\Output\\SequentialStaticApp\\Reports\\
 FilenameTemplate	SpheresFrame_

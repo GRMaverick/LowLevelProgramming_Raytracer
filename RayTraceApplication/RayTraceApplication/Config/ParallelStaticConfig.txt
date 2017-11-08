@@ -3,7 +3,7 @@ ResolutionHeight	1080
 FPS	60
 Threads	4
 MaxFrames	100
-MP4OutputPath	C:\\Users\\Maverick\\Documents\\Visual Studio 2015\\Projects\\RayTraceApplication\\RayTraceApplication\\Output\\ParallelStaticApp\\MP4\\
-PPMOutputPath	C:\\Users\\Maverick\\Documents\\Visual Studio 2015\\Projects\\RayTraceApplication\\RayTraceApplication\\Output\\ParallelStaticApp\\PPM\\
-ReportPath	C:\\Users\\Maverick\\Documents\\Visual Studio 2015\\Projects\\RayTraceApplication\\RayTraceApplication\\Output\\ParallelStaticApp\\Reports\\
+MP4OutputPath	C:\\Users\\Maverick\\Documents\\Visual Studio 2015\\Projects\\RaytracingApplication\\RayTraceApplication\\RayTraceApplication\\Output\\ParallelStaticApp\\MP4\\
+PPMOutputPath	C:\\Users\\Maverick\\Documents\\Visual Studio 2015\\Projects\\RaytracingApplication\\RayTraceApplication\\RayTraceApplication\\Output\\ParallelStaticApp\\PPM\\
+ReportPath	C:\\Users\\Maverick\\Documents\\Visual Studio 2015\\Projects\\RaytracingApplication\\RayTraceApplication\\RayTraceApplication\\Output\\ParallelStaticApp\\Reports\\
 FilenameTemplate	SpheresFrame_
