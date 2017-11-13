@@ -3,6 +3,7 @@
 using Newtonsoft.Json;
 
 using RTAVisualiser.Forms;
+using RTAVisualiser.Mapper;
 using RTAVisualiser.Interfaces;
 using RTAVisualiser.Repositories;
 
@@ -17,8 +18,13 @@ namespace RTAVisualiser.App
         {
             UnityContainer container = new UnityContainer();
 
-            container.RegisterType<IRepository, CSVRepository>()
+            container.RegisterType<IReportRepository, ReportRepositoryCSV>()
                 .RegisterType<Form, MainForm>("MainForm")
+                .RegisterType<IConfigDomain, ConfigDomain>()
+                .RegisterType<IReportMapper, ReportMapper>()
+                .RegisterType<IConfigRepository, ConfigRepositoryCSV>()
+                .RegisterType<ITerminalInstruction, Raytracer>("Raytracer")
+                .RegisterType<ITerminalInstruction, MagickImageProcessor>("Magick")
                 .RegisterInstance<IAppSettings>(GetAppSettings());
 
             return container;

@@ -10,7 +10,10 @@ public:
 	static int ResolutionHeight;
 	static int FramesPerSecond;
 	static int NumberOfThreads;
-	
+
+	static bool Parallel;
+	static bool Physics;
+
 	static std::string RootOutputPath;
 	static std::string ApplicationType;
 	static std::string MP4OutputPath;

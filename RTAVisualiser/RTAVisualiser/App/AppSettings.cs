@@ -10,11 +10,9 @@ namespace RTAVisualiser.App
 {
     public class AppSettings : IAppSettings
     {
-        public string SequentialReportDirectory { get; set; } = null;
-        public string SequentialBVReportDirectory { get; set; } = null;
-        public string SequentialOctreeReportDirectory { get; set; } = null;
-        public string ParallelReportDirectory { get; set; } = null;
-        public string ParallelBVReportDirectory { get; set; } = null;
-        public string ParallelOctreeReportDirectory { get; set; } = null;
+        public string RootReportDirectory { get; set; } = null;
+        public string RepositoryLastAccess { get; set; } = null;
+        public string RTAppExecutablePath { get; set; } = null;
+        public string BackendConfigDirectory { get; set; } = null;
     }
 }

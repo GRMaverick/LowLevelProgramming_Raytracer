@@ -8,11 +8,9 @@ namespace RTAVisualiser.Interfaces
 {
     public interface IAppSettings
     {
-        string SequentialReportDirectory { get; set; }
-        string SequentialBVReportDirectory { get; set; }
-        string SequentialOctreeReportDirectory { get; set; }
-        string ParallelReportDirectory { get; set; }
-        string ParallelBVReportDirectory { get; set; }
-        string ParallelOctreeReportDirectory { get; set; }
+        string RootReportDirectory { get; set; }
+        string RTAppExecutablePath { get; set; }
+        string BackendConfigDirectory { get; set; }
+        string RepositoryLastAccess { get; set; }
     }
 }

@@ -1,0 +1,11 @@
+ResolutionWidth	1920
+ResolutionHeight	1080
+FPS	60
+MaxFrames	400
+MP4OutputPath	Output\PreviewRender\MP4\
+PPMOutputPath	Output\PreviewRender\PPM\
+ReportPath	Output\PreviewRender\Reports\
+FilenameTemplate	SpheresFrame_
+Parallel	True
+Threads	8
+Physics	True

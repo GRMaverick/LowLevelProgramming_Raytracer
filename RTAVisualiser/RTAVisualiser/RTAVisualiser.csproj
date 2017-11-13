@@ -103,8 +103,14 @@
   <ItemGroup>
     <Compile Include="App\AppBuilder.cs" />
     <Compile Include="App\AppSettings.cs" />
+    <Compile Include="App\MagickImageProcessor.cs" />
+    <Compile Include="App\Raytracer.cs" />
+    <Compile Include="DataModel\ConfigDataModel.cs" />
+    <Compile Include="DataModel\CoreDataModel.cs" />
     <Compile Include="DataModel\MemoryDataModel.cs" />
     <Compile Include="DataModel\TimingsDataModel.cs" />
+    <Compile Include="Debugging\MultiTextWriter.cs" />
+    <Compile Include="Debugging\RichTextBoxWriter.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,10 +118,17 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IAppSettings.cs" />
-    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IConfigDomain.cs" />
+    <Compile Include="Interfaces\IConfigRepository.cs" />
+    <Compile Include="Interfaces\ITerminalInstruction.cs" />
+    <Compile Include="Interfaces\IReportMapper.cs" />
+    <Compile Include="Interfaces\IReportRepository.cs" />
+    <Compile Include="Domain\ConfigDomain.cs" />
+    <Compile Include="Domain\ReportMapper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\CSVRepository.cs" />
+    <Compile Include="Repositories\ConfigRepositoryCSV.cs" />
+    <Compile Include="Repositories\ReportRepositoryCSV.cs" />
     <Compile Include="Threading\WorkerClass.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -131,12 +144,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Config\AppSettings.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\RyanFileMemory.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Data\RyanFileTimings.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

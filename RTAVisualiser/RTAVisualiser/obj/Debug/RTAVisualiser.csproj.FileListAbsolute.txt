@@ -76,3 +76,40 @@ C:\Users\Maverick\Documents\Visual Studio 2015\Projects\RaytracingApplication\RT
 C:\Users\Maverick\Documents\Visual Studio 2015\Projects\RaytracingApplication\RTAVisualiser\RTAVisualiser\obj\Debug\RTAVisualiser.Forms.MainForm.resources
 C:\Users\Maverick\Documents\Visual Studio 2015\Projects\RaytracingApplication\RTAVisualiser\RTAVisualiser\obj\Debug\RTAVisualiser.Properties.Resources.resources
 C:\Users\Maverick\Documents\Visual Studio 2015\Projects\RaytracingApplication\RTAVisualiser\RTAVisualiser\obj\Debug\RTAVisualiser.csproj.GenerateResource.Cache
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\RTAVisualiser.exe.config
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\obj\Debug\RTAVisualiser.pdb
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\obj\Debug\RTAVisualiser.csprojResolveAssemblyReference.cache
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\obj\Debug\RTAVisualiser.Forms.MainForm.resources
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\obj\Debug\RTAVisualiser.Properties.Resources.resources
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\obj\Debug\RTAVisualiser.csproj.GenerateResource.Cache
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\Config\AppSettings.json
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\CommonServiceLocator.dll
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\LiveCharts.dll
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\LiveCharts.WinForms.dll
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\Unity.Abstractions.dll
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\Unity.Configuration.dll
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\Unity.Container.dll
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\Unity.Interception.Configuration.dll
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\Unity.Interception.dll
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\Unity.RegistrationByConvention.dll
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\Unity.ServiceLocation.dll
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\CommonServiceLocator.pdb
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\LiveCharts.pdb
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\LiveCharts.xml
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\LiveCharts.WinForms.pdb
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\LiveCharts.WinForms.xml
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\Unity.Abstractions.pdb
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\Unity.Configuration.pdb
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\Unity.Container.pdb
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\Unity.Interception.pdb
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\Unity.Interception.Configuration.pdb
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\Unity.RegistrationByConvention.pdb
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\Unity.ServiceLocation.pdb
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\obj\Debug\RTAVisualiser.exe
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\RTAVisualiser.exe
+C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RTAVisualiser\RTAVisualiser\bin\Debug\RTAVisualiser.pdb

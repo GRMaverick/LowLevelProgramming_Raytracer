@@ -61,6 +61,9 @@
     <Filter Include="Source Files\Physics">
       <UniqueIdentifier>{a400968b-497f-4a0c-a768-ff0fe47863c9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Config">
+      <UniqueIdentifier>{d98d7d40-2d4e-492d-8499-cbb700b01b91}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_Configuration\RTAParameters.cpp">
@@ -90,12 +93,6 @@
     <ClCompile Include="_Rendering\Tracing.cpp">
       <Filter>Source Files\Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="_Core\SequentialStaticApp.cpp">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="_Core\SequentialPhysicsApp.cpp">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
     <ClCompile Include="_Physics\Physics.cpp">
       <Filter>Source Files\Physics</Filter>
     </ClCompile>
@@ -106,20 +103,8 @@
     <ClCompile Include="_Physics\Collisions.cpp">
       <Filter>Source Files\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="_Core\ParallelPhysicsApp.cpp">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="_Core\AppManager.cpp">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="_Core\ParallelStaticApp.cpp">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
     <ClCompile Include="_Physics\Octree.cpp">
       <Filter>Source Files\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="_Core\TestApp.cpp">
-      <Filter>Source Files\Core</Filter>
     </ClCompile>
     <ClCompile Include="_Physics\BoundingBox.cpp">
       <Filter>Source Files\Physics</Filter>
@@ -127,8 +112,11 @@
     <ClCompile Include="_Physics\BoundingSphere.cpp">
       <Filter>Source Files\Physics</Filter>
     </ClCompile>
-    <ClCompile Include="_Core\SequentialStaticBVApp.cpp">
+    <ClCompile Include="_Core\BackendApplication.cpp">
       <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="_Utilities\TimerManager.cpp">
+      <Filter>Source Files\Utilities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -171,12 +159,6 @@
     <ClInclude Include="_Rendering\Tracing.h">
       <Filter>Header Files\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="_Core\SequentialStaticApp.h">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="_Core\SequentialPhysicsApp.h">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
     <ClInclude Include="_Physics\Physics.h">
       <Filter>Header Files\Physics</Filter>
     </ClInclude>
@@ -186,32 +168,40 @@
     <ClInclude Include="_Physics\Collisions.h">
       <Filter>Header Files\Physics</Filter>
     </ClInclude>
-    <ClInclude Include="_Core\ParallelPhysicsApp.h">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="_Core\AppManager.h">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="_Core\ApplicationEnum.h">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="_Core\ParallelStaticApp.h">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
     <ClInclude Include="_Physics\Octree.h">
       <Filter>Header Files\Physics</Filter>
     </ClInclude>
     <ClInclude Include="_Physics\BoundingBox.h">
       <Filter>Header Files\Physics</Filter>
     </ClInclude>
-    <ClInclude Include="_Core\TestApp.h">
-      <Filter>Header Files\Core</Filter>
-    </ClInclude>
     <ClInclude Include="_Physics\BoundingSphere.h">
       <Filter>Header Files\Physics</Filter>
     </ClInclude>
-    <ClInclude Include="_Core\SequentialStaticBVApp.h">
+    <ClInclude Include="_Memory\MemoryReportItem.h">
+      <Filter>Header Files\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="_Core\BackendApplication.h">
       <Filter>Header Files\Core</Filter>
     </ClInclude>
+    <ClInclude Include="_Utilities\TimerManager.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Config\ParallelPhysicsConfig.txt">
+      <Filter>Resource Files\Config</Filter>
+    </Text>
+    <Text Include="Config\ParallelStaticConfig.txt">
+      <Filter>Resource Files\Config</Filter>
+    </Text>
+    <Text Include="Config\SequentialPhysicsConfig.txt">
+      <Filter>Resource Files\Config</Filter>
+    </Text>
+    <Text Include="Config\SequentialStaticBVConfig.txt">
+      <Filter>Resource Files\Config</Filter>
+    </Text>
+    <Text Include="Config\SequentialStaticConfig.txt">
+      <Filter>Resource Files\Config</Filter>
+    </Text>
   </ItemGroup>
 </Project>

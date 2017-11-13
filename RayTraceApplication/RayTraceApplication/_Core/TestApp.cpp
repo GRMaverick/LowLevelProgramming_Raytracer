@@ -47,7 +47,7 @@ void TestApp::Initialise(void)
 	//m_SpheresArray[4] = new Sphere(Vector3(-5.0f, 5.0f, -15.0f), 0.5f, Vector3(0.90f, 0.76f, 0.46f), 1.0f, 0.0f, 0.0f, 2.0f, 0.4f);
 	//m_SpheresArray[5] = new Sphere(Vector3(-5.0f, 6.0f, -30.0f), 1.25f, Vector3(0.65f, 0.77f, 0.97f), 1.0f, 0.0f, 0.0f, 1.0f, 0.3f);
 
-	MemoryPoolManager::Instance()->GenerateReport();
+	MemoryPoolManager::Instance()->GenerateReport("Frame_" + std::to_string(0));
 
 	Timer::Start();
 }
@@ -60,13 +60,13 @@ void TestApp::Run(void)
 		Update((float)(1 / (float)RTAParameters::FramesPerSecond));
 		Render(1);
 
-		MemoryPoolManager::Instance()->GenerateReport();
+		MemoryPoolManager::Instance()->GenerateReport("Frame_" + std::to_string(0));
 	//}
 }
 void TestApp::Update(float deltaTime)
 {
 	m_Octree->UpdateTree();
-	MemoryPoolManager::Instance()->GenerateReport();
+	MemoryPoolManager::Instance()->GenerateReport("Frame_" + std::to_string(0));
 }
 void TestApp::Render(int frame)
 {

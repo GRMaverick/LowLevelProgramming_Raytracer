@@ -1,0 +1,11 @@
+ResolutionWidth	1920
+ResolutionHeight	1080
+FPS	60
+MaxFrames	1
+MP4OutputPath	Output\2017-11-13_05-29-45\MP4\
+PPMOutputPath	Output\2017-11-13_05-29-45\PPM\
+ReportPath	Output\2017-11-13_05-29-45\Reports\
+FilenameTemplate	SpheresFrame_
+Parallel	False
+Threads	1
+Physics	False

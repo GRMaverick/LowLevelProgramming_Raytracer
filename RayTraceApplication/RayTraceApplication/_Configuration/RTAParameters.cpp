@@ -11,6 +11,9 @@ int RTAParameters::ResolutionHeight = 0;
 int RTAParameters::NumberOfThreads = 0;
 int RTAParameters::FramesPerSecond = 0;
 
+bool RTAParameters::Parallel = false;
+bool RTAParameters::Physics = false;
+
 std::string RTAParameters::ReportPath = "";
 std::string RTAParameters::RootOutputPath = "";
 std::string RTAParameters::ApplicationType = "";
@@ -76,6 +79,14 @@ bool RTAParameters::LoadParametersCSV(char* filename)
 		else if (columns[0] == "ReportPath")
 		{
 			ReportPath = columns[1];
+		}
+		else if (columns[0] == "Parallel")
+		{
+			Parallel = (columns[1] == "True") ? true : false;
+		}
+		else if (columns[0] == "Physics")
+		{
+			Physics = (columns[1] == "True") ? true : false;
 		}
 	}
 

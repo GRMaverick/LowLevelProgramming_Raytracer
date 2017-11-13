@@ -1,0 +1,7 @@
+ResolutionWidth	1920
+ResolutionHeight	1080
+FPS	60
+MaxFrames	600
+MP4OutputPath	C:\\Users\\Maverick\\Source\\Repos\\LowLevelProgramming_Assignment\\RayTraceApplication\\RayTraceApplication\\Output\\SequentialPhysicsApp\\MP4\\
+PPMOutputPath	C:\\Users\\Maverick\\Source\\Repos\\LowLevelProgramming_Assignment\\RayTraceApplication\\RayTraceApplication\\Output\\SequentialPhysicsApp\\PPM\\
+FilenameTemplate	SpheresFrame_
