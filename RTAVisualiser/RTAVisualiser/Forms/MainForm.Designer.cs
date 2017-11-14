@@ -55,6 +55,18 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ConsoleOutputTB = new System.Windows.Forms.RichTextBox();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabControl4 = new System.Windows.Forms.TabControl();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.TimingsCartesian2 = new LiveCharts.WinForms.CartesianChart();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.ThreadingCartesian = new LiveCharts.WinForms.CartesianChart();
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -66,16 +78,27 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabControl3.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            this.tabControl4.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl2
             // 
             this.tabControl2.Controls.Add(this.tabPage3);
             this.tabControl2.Controls.Add(this.tabPage4);
-            this.tabControl2.Location = new System.Drawing.Point(850, 22);
+            this.tabControl2.Location = new System.Drawing.Point(823, 7);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(967, 781);
+            this.tabControl2.Size = new System.Drawing.Size(1064, 1006);
             this.tabControl2.TabIndex = 0;
             // 
             // tabPage3
@@ -85,17 +108,17 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(959, 755);
+            this.tabPage3.Size = new System.Drawing.Size(1056, 980);
             this.tabPage3.TabIndex = 0;
-            this.tabPage3.Text = "All";
+            this.tabPage3.Text = "General";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.cartesianChart1);
-            this.groupBox5.Location = new System.Drawing.Point(6, 4);
+            this.groupBox5.Location = new System.Drawing.Point(6, 6);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(947, 365);
+            this.groupBox5.Size = new System.Drawing.Size(1044, 437);
             this.groupBox5.TabIndex = 3;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Memory Report";
@@ -104,25 +127,25 @@
             // 
             this.cartesianChart1.Location = new System.Drawing.Point(7, 16);
             this.cartesianChart1.Name = "cartesianChart1";
-            this.cartesianChart1.Size = new System.Drawing.Size(934, 343);
+            this.cartesianChart1.Size = new System.Drawing.Size(1031, 415);
             this.cartesianChart1.TabIndex = 0;
             this.cartesianChart1.Text = "DurationCartesian";
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.DurationAllCartesian);
-            this.groupBox4.Location = new System.Drawing.Point(9, 375);
+            this.groupBox4.Location = new System.Drawing.Point(6, 449);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(944, 372);
+            this.groupBox4.Size = new System.Drawing.Size(1044, 525);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Duration Report";
             // 
             // DurationAllCartesian
             // 
-            this.DurationAllCartesian.Location = new System.Drawing.Point(4, 19);
+            this.DurationAllCartesian.Location = new System.Drawing.Point(7, 19);
             this.DurationAllCartesian.Name = "DurationAllCartesian";
-            this.DurationAllCartesian.Size = new System.Drawing.Size(934, 353);
+            this.DurationAllCartesian.Size = new System.Drawing.Size(1031, 500);
             this.DurationAllCartesian.TabIndex = 0;
             this.DurationAllCartesian.Text = "DurationCartesian";
             // 
@@ -131,17 +154,17 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(959, 755);
+            this.tabPage4.Size = new System.Drawing.Size(1056, 980);
             this.tabPage4.TabIndex = 1;
-            this.tabPage4.Text = "Sequential";
+            this.tabPage4.Text = "Methods";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // RenderPreview
             // 
             this.RenderPreview.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.RenderPreview.Location = new System.Drawing.Point(1, 0);
+            this.RenderPreview.Location = new System.Drawing.Point(0, 0);
             this.RenderPreview.Name = "RenderPreview";
-            this.RenderPreview.Size = new System.Drawing.Size(823, 434);
+            this.RenderPreview.Size = new System.Drawing.Size(814, 491);
             this.RenderPreview.TabIndex = 1;
             this.RenderPreview.TabStop = false;
             // 
@@ -152,7 +175,7 @@
             "3820x2160",
             "1920x1080",
             "640x480"});
-            this.ResCBox.Location = new System.Drawing.Point(142, 30);
+            this.ResCBox.Location = new System.Drawing.Point(70, 19);
             this.ResCBox.Name = "ResCBox";
             this.ResCBox.Size = new System.Drawing.Size(121, 21);
             this.ResCBox.TabIndex = 2;
@@ -161,7 +184,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(79, 33);
+            this.label1.Location = new System.Drawing.Point(7, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 3;
@@ -171,18 +194,18 @@
             // 
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 22);
+            this.groupBox1.Location = new System.Drawing.Point(6, 9);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(828, 286);
+            this.groupBox1.Size = new System.Drawing.Size(814, 454);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Configuration";
             // 
             // groupBox3
             // 
-            this.groupBox3.Location = new System.Drawing.Point(297, 19);
+            this.groupBox3.Location = new System.Drawing.Point(6, 179);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(525, 259);
+            this.groupBox3.Size = new System.Drawing.Size(802, 269);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Scene Objects";
@@ -201,14 +224,14 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(6, 19);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(285, 259);
+            this.groupBox2.Size = new System.Drawing.Size(802, 154);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Renderer";
             // 
             // ThreadCountNUD
             // 
-            this.ThreadCountNUD.Location = new System.Drawing.Point(141, 148);
+            this.ThreadCountNUD.Location = new System.Drawing.Point(215, 98);
             this.ThreadCountNUD.Maximum = new decimal(new int[] {
             8,
             0,
@@ -232,7 +255,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(67, 151);
+            this.label4.Location = new System.Drawing.Point(141, 101);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 13);
             this.label4.TabIndex = 10;
@@ -241,7 +264,7 @@
             // PhysicsTickBox
             // 
             this.PhysicsTickBox.AutoSize = true;
-            this.PhysicsTickBox.Location = new System.Drawing.Point(18, 188);
+            this.PhysicsTickBox.Location = new System.Drawing.Point(11, 122);
             this.PhysicsTickBox.Name = "PhysicsTickBox";
             this.PhysicsTickBox.Size = new System.Drawing.Size(91, 17);
             this.PhysicsTickBox.TabIndex = 9;
@@ -252,7 +275,7 @@
             // ConcurrentTickBox
             // 
             this.ConcurrentTickBox.AutoSize = true;
-            this.ConcurrentTickBox.Location = new System.Drawing.Point(18, 122);
+            this.ConcurrentTickBox.Location = new System.Drawing.Point(11, 99);
             this.ConcurrentTickBox.Name = "ConcurrentTickBox";
             this.ConcurrentTickBox.Size = new System.Drawing.Size(130, 17);
             this.ConcurrentTickBox.TabIndex = 5;
@@ -262,7 +285,7 @@
             // 
             // FramesTB
             // 
-            this.FramesTB.Location = new System.Drawing.Point(142, 59);
+            this.FramesTB.Location = new System.Drawing.Point(70, 46);
             this.FramesTB.Name = "FramesTB";
             this.FramesTB.Size = new System.Drawing.Size(120, 20);
             this.FramesTB.TabIndex = 8;
@@ -278,7 +301,7 @@
             "60",
             "90",
             "120"});
-            this.FPSCBox.Location = new System.Drawing.Point(142, 86);
+            this.FPSCBox.Location = new System.Drawing.Point(70, 72);
             this.FPSCBox.Name = "FPSCBox";
             this.FPSCBox.Size = new System.Drawing.Size(121, 21);
             this.FPSCBox.TabIndex = 4;
@@ -287,7 +310,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(95, 62);
+            this.label3.Location = new System.Drawing.Point(23, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 7;
@@ -296,24 +319,24 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 89);
+            this.label2.Location = new System.Drawing.Point(40, 75);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 13);
+            this.label2.Size = new System.Drawing.Size(30, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Frames Per Second:";
+            this.label2.Text = "FPS:";
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 314);
+            this.progressBar1.Location = new System.Drawing.Point(3, 469);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(701, 23);
+            this.progressBar1.Size = new System.Drawing.Size(709, 23);
             this.progressBar1.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(719, 314);
+            this.button1.Location = new System.Drawing.Point(718, 469);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 23);
+            this.button1.Size = new System.Drawing.Size(102, 23);
             this.button1.TabIndex = 3;
             this.button1.Text = "Render";
             this.button1.UseVisualStyleBackColor = true;
@@ -323,10 +346,10 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 343);
+            this.tabControl1.Location = new System.Drawing.Point(3, 497);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(832, 460);
+            this.tabControl1.Size = new System.Drawing.Size(824, 517);
             this.tabControl1.TabIndex = 5;
             // 
             // tabPage1
@@ -335,7 +358,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(824, 434);
+            this.tabPage1.Size = new System.Drawing.Size(816, 491);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Render Preview";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -346,7 +369,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(824, 434);
+            this.tabPage2.Size = new System.Drawing.Size(816, 491);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Console Output";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -361,15 +384,151 @@
             this.ConsoleOutputTB.TabIndex = 0;
             this.ConsoleOutputTB.Text = "";
             // 
+            // tabControl3
+            // 
+            this.tabControl3.Controls.Add(this.tabPage5);
+            this.tabControl3.Controls.Add(this.tabPage6);
+            this.tabControl3.Location = new System.Drawing.Point(2, 0);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(1901, 1042);
+            this.tabControl3.TabIndex = 6;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.groupBox1);
+            this.tabPage5.Controls.Add(this.tabControl2);
+            this.tabPage5.Controls.Add(this.tabControl1);
+            this.tabPage5.Controls.Add(this.progressBar1);
+            this.tabPage5.Controls.Add(this.button1);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1893, 1016);
+            this.tabPage5.TabIndex = 0;
+            this.tabPage5.Text = "Overview";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.tabControl4);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1893, 1016);
+            this.tabPage6.TabIndex = 1;
+            this.tabPage6.Text = "Reporting";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // tabControl4
+            // 
+            this.tabControl4.Controls.Add(this.tabPage7);
+            this.tabControl4.Controls.Add(this.tabPage8);
+            this.tabControl4.Controls.Add(this.tabPage9);
+            this.tabControl4.Location = new System.Drawing.Point(8, 6);
+            this.tabControl4.Name = "tabControl4";
+            this.tabControl4.SelectedIndex = 0;
+            this.tabControl4.Size = new System.Drawing.Size(1882, 1007);
+            this.tabControl4.TabIndex = 0;
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.splitContainer1);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(1874, 981);
+            this.tabPage7.TabIndex = 0;
+            this.tabPage7.Text = "Timings";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox6);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.groupBox7);
+            this.splitContainer1.Size = new System.Drawing.Size(1868, 975);
+            this.splitContainer1.SplitterDistance = 463;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(1874, 981);
+            this.tabPage8.TabIndex = 1;
+            this.tabPage8.Text = "Memory";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(1874, 981);
+            this.tabPage9.TabIndex = 2;
+            this.tabPage9.Text = "Method Calling";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.AutoSize = true;
+            this.groupBox6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox6.Controls.Add(this.TimingsCartesian2);
+            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox6.Location = new System.Drawing.Point(0, 0);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(1868, 463);
+            this.groupBox6.TabIndex = 0;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Frame Time";
+            // 
+            // TimingsCartesian2
+            // 
+            this.TimingsCartesian2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TimingsCartesian2.Location = new System.Drawing.Point(3, 16);
+            this.TimingsCartesian2.Name = "TimingsCartesian2";
+            this.TimingsCartesian2.Size = new System.Drawing.Size(1862, 444);
+            this.TimingsCartesian2.TabIndex = 0;
+            this.TimingsCartesian2.Text = "TimingsCartesian2";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.AutoSize = true;
+            this.groupBox7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox7.Controls.Add(this.ThreadingCartesian);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox7.Location = new System.Drawing.Point(0, 0);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(1868, 508);
+            this.groupBox7.TabIndex = 0;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Threading";
+            // 
+            // ThreadingCartesian
+            // 
+            this.ThreadingCartesian.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ThreadingCartesian.Location = new System.Drawing.Point(3, 16);
+            this.ThreadingCartesian.Name = "ThreadingCartesian";
+            this.ThreadingCartesian.Size = new System.Drawing.Size(1862, 489);
+            this.ThreadingCartesian.TabIndex = 0;
+            this.ThreadingCartesian.Text = "cartesianChart3";
+            // 
             // MainForm
             // 
-            this.ClientSize = new System.Drawing.Size(1829, 815);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.tabControl2);
+            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.tabControl3);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "RTA Visualiser";
             this.tabControl2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
@@ -383,6 +542,21 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage6.ResumeLayout(false);
+            this.tabControl4.ResumeLayout(false);
+            this.tabPage7.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -415,5 +589,17 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.RichTextBox ConsoleOutputTB;
+        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabControl tabControl4;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private LiveCharts.WinForms.CartesianChart TimingsCartesian2;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private LiveCharts.WinForms.CartesianChart ThreadingCartesian;
     }
 }

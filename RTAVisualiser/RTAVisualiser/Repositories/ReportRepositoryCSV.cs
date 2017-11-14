@@ -43,7 +43,9 @@ namespace RTAVisualiser.Repositories
                         CoreData = new CoreDataModel();
                         CoreData.Name = "Render_" + splitDir.Last();
 
-                        FetchLatestDurationData(Settings.RootReportDirectory + splitDir.Last() + "\\Reports\\Timings.csv");
+                        FetchLatestFrameTimeData(Settings.RootReportDirectory + splitDir.Last() + "\\Reports\\Timings\\Frames_TimingInfo.csv");
+                        FetchLatestThreadTimeData(Settings.RootReportDirectory + splitDir.Last() + "\\Reports\\Timings\\RenderThreads_TimingInfo.csv");
+
                         FetchLatestMemoryData(Settings.RootReportDirectory + splitDir.Last() + "\\Reports\\Memory\\");
 
                         HistoricalData.Add(CoreData);
@@ -56,7 +58,7 @@ namespace RTAVisualiser.Repositories
                 }
             }
         }
-        private void FetchLatestDurationData(string path)
+        private void FetchLatestFrameTimeData(string path)
         {
             try
             {
@@ -69,11 +71,11 @@ namespace RTAVisualiser.Repositories
                     while(line != null)
                     {
                         string[] split = line.Split('\t');
-                        CoreData.Timings.Add(new TimingsDataModel()
+                        CoreData.FrameTimes.Add(new TimingsDataModel()
                         {
                             Name = split[0],
-
-                            Duration = Convert.ToDouble(split[1]),
+                            Frame = Convert.ToInt32(split[1]),
+                            Duration = Convert.ToDouble(split[2]),
                         });
                         line = reader.ReadLine();
                     }
@@ -83,6 +85,34 @@ namespace RTAVisualiser.Repositories
             {
             }
         }
+        private void FetchLatestThreadTimeData(string path)
+        {
+            try
+            {
+                List<TimingsDataModel> tdmList = new List<TimingsDataModel>();
+                using (System.IO.FileStream fs = new System.IO.FileStream(path, FileMode.Open))
+                using (System.IO.StreamReader reader = new System.IO.StreamReader(fs))
+                {
+                    reader.ReadLine();
+                    string line = reader.ReadLine();
+                    while (line != null)
+                    {
+                        string[] split = line.Split('\t');
+                        CoreData.ThreadTimes.Add(new TimingsDataModel()
+                        {
+                            Name = split[0],
+                            Frame = Convert.ToInt32(split[1]),
+                            Duration = Convert.ToDouble(split[2]),
+                        });
+                        line = reader.ReadLine();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
         private void FetchLatestMemoryData(string path)
         {
             try
@@ -103,12 +133,12 @@ namespace RTAVisualiser.Repositories
                         {
                             string[] split = line.Split('\t');
 
-                            mdm.Name = s.Split('\\').Last();
-                            mdm.Frame = Convert.ToInt32(s.Split('\\').Last().Split('_').Last());
-                            mdm.SizeAllocated += Convert.ToInt32(split[1]);
-                            mdm.SizeUtilised += Convert.ToInt32(split[2]);
-                            mdm.PeakSizeUtilised += Convert.ToInt32(split[3]);
-                            mdm.NumberOfAllocations += Convert.ToInt32(split[4]);
+                            //mdm.Name = s.Split('\\').Last();
+                            //mdm.Frame = Convert.ToInt32(s.Split('\\').Last().Split('_').Last());
+                            //mdm.SizeAllocated += Convert.ToInt32(split[1]);
+                            //mdm.SizeUtilised += Convert.ToInt32(split[2]);
+                            //mdm.PeakSizeUtilised += Convert.ToInt32(split[3]);
+                            //mdm.NumberOfAllocations += Convert.ToInt32(split[4]);
 
                             line = reader.ReadLine();
                         }

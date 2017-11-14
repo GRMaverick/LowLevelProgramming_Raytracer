@@ -8,6 +8,7 @@
 #include "Collisions.h"
 #include "Rendering.h"
 #include "FfmpegUtility.h"
+#include "MethodProfiler.h"
 #include "TimerManager.h"
 #include "RTAParameters.h"
 #include "BackendApplication.h"
@@ -50,10 +51,6 @@ void BackendApplication::Initialise(bool preview)
 	}
 
 	RTAParameters::DisplayParameters(); 
-
-	RTAParameters::MaxFrames = 5;
-	RTAParameters::Parallel = true;
-	RTAParameters::NumberOfThreads = 4;
 
 	std::stringstream ss1, ss2, ss3, ss4, ss5, ss6;
 	ss1 << "mkdir \"" << RTAParameters::MP4OutputPath << "\"" << std::endl;
@@ -99,6 +96,7 @@ void BackendApplication::Initialise(bool preview)
 	{
 		MemoryPoolManager::Instance()->GenerateReport("Frame_0");
 
+		TimerManager::Instance()->CreateTimer("FileIO");
 		TimerManager::Instance()->CreateTimer("Frames");
 		TimerManager::Instance()->CreateTimer("RenderThreads");
 	}
@@ -126,12 +124,14 @@ void BackendApplication::Run(void)
 		{
 			MemoryPoolManager::Instance()->GenerateReport("Frame_" + std::to_string(frame + 1));
 			MemoryPoolManager::Instance()->ExportReport();
+			MethodProfiler::ExportReport();
 		}
 	}
 
 	if (!m_Preview)
 	{
 		FfmpegUtility::ExecuteCompression();
+		TimerManager::Instance()->GetTimer("FileIO")->ExportReport();
 		TimerManager::Instance()->GetTimer("Frames")->ExportReport();
 		TimerManager::Instance()->GetTimer("RenderThreads")->ExportReport();
 	}

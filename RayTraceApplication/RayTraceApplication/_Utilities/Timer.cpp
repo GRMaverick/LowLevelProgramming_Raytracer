@@ -69,19 +69,6 @@ double Timer::GetExecutionTime(std::string name)
 	return GetExecutionTimeRecursive(m_HeadNode, name);
 }
 
-void Timer::StartTrackingNode(TimerInfo* pNode, std::string name, int frame)
-{
-	if(pNode)
-	{
-		StartTrackingNode(pNode->pNext, name, frame);
-	}
-
-	pNode = new TimerInfo();
-	pNode->pNext = nullptr;
-	pNode->Name = name;
-	pNode->Frame = frame;
-	pNode->StartTime = std::chrono::steady_clock::now();
-}
 void Timer::EndTrackingNode(TimerInfo* pNode, std::string name)
 {
 	if (pNode->Name != name)

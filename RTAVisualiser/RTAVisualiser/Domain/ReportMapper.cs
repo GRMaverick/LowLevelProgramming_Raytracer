@@ -19,7 +19,9 @@ namespace RTAVisualiser.Mapper
     {
         private IReportRepository Repository { get; set; } = null;
 
-        private ChartValues<ObservableValue> DurationData { get; set; } = new ChartValues<ObservableValue>();
+        private ChartValues<ObservableValue> FrameTimeData { get; set; } = new ChartValues<ObservableValue>();
+        private Dictionary<string, ChartValues<ObservableValue>> ThreadTimeData { get; set; } = new Dictionary<string, ChartValues<ObservableValue>>(8);
+
         private ChartValues<ObservableValue> PeakUsage { get; set; } = new ChartValues<ObservableValue>();
         private ChartValues<ObservableValue> UsedMemory { get; set; } = new ChartValues<ObservableValue>();
         private ChartValues<ObservableValue> AllocatedMemory { get; set; } = new ChartValues<ObservableValue>();
@@ -27,14 +29,21 @@ namespace RTAVisualiser.Mapper
 
         public ReportMapper(IReportRepository repo)
         {
-            Repository = repo;            
+            Repository = repo;
+
+            Repository.Fetch();
+
+            UpdateLatestFrameTimeCollection();
+            UpdateLatestThreadTimeCollection();
+            UpdateLatestMemoryCollection();
         }
 
         public void Update()
         {
             Repository.Fetch();
 
-            UpdateLatestDurationCollection();
+            UpdateLatestFrameTimeCollection();
+            UpdateLatestThreadTimeCollection();
             UpdateLatestMemoryCollection();
         }
 
@@ -45,25 +54,40 @@ namespace RTAVisualiser.Mapper
             LineSeries timing = new LineSeries()
             {
                 Title = "Duration of " + Repository.GetLastRender().Name,
-                Values = DurationData
+                Values = FrameTimeData
             };
             
             collection.Add(timing);
 
             return collection;
         }
-        public SeriesCollection InitialiseTimingCollection()
+        public SeriesCollection InitialiseFrameTimeCollection()
         {
             SeriesCollection collection = new SeriesCollection();
 
             LineSeries timing = new LineSeries()
             {
                 Title = "Duration of " + Repository.GetLastRender().Name,
-                Values = DurationData
+                Values = FrameTimeData
             };
 
             collection.Add(timing);
 
+            return collection;
+        }
+        public SeriesCollection InitialiseThreadTimeCollection()
+        {
+            SeriesCollection collection = new SeriesCollection();
+
+            foreach(string s in ThreadTimeData.Keys.ToList())
+            {
+                collection.Add(new LineSeries()
+                {
+                    Title = s,
+                    Values = ThreadTimeData[s],
+                });
+            }
+            
             return collection;
         }
         public SeriesCollection InitialiseMemoryCollection()
@@ -99,28 +123,74 @@ namespace RTAVisualiser.Mapper
             return collection;
         }
 
-        private void UpdateLatestDurationCollection()
+        private void UpdateLatestFrameTimeCollection()
         {
-            List<TimingsDataModel> tdmList = Repository.GetLastRender().Timings;
+            List<TimingsDataModel> tdmList = Repository.GetLastRender().FrameTimes;
 
             if (tdmList.Count == 0) return;
 
-            if(tdmList.Count != DurationData.Count)
+            if(tdmList.Count != FrameTimeData.Count)
             {
-                DurationData.Clear();
+                FrameTimeData.Clear();
                 foreach (TimingsDataModel tdm in tdmList)
                 {
-                    DurationData.Add(new ObservableValue(tdm.Duration));
+                    FrameTimeData.Add(new ObservableValue(tdm.Duration));
                 }
             }
             else
             {
-                for (int i = 0; i < DurationData.Count; i++)
+                for (int i = 0; i < FrameTimeData.Count; i++)
                 {
-                    DurationData[i].Value = tdmList[i].Duration;
+                    FrameTimeData[i].Value = tdmList[i].Duration;
                 }
             }
         }
+        private void UpdateLatestThreadTimeCollection()
+        {
+            List<TimingsDataModel> tdmList = Repository.GetLastRender().ThreadTimes;
+
+            int threadCount = ScanForThreadCount(tdmList);
+
+            if ((tdmList.Count / threadCount) != ThreadTimeData.Count)
+            {
+                foreach (TimingsDataModel tdm in tdmList)
+                {
+                    if (!ThreadTimeData.ContainsKey(tdm.Name.Split('.')[0]))
+                        ThreadTimeData[tdm.Name.Split('.')[0]] = new ChartValues<ObservableValue>();
+                    ThreadTimeData[tdm.Name.Split('.')[0]].Clear();
+                }
+
+                foreach (TimingsDataModel tdm in tdmList)
+                {
+                    ThreadTimeData[tdm.Name.Split('.')[0]].Add(new ObservableValue(tdm.Duration));
+                }
+            }
+            else
+            {
+                for (int i = 0; i < tdmList.Count; i++)
+                {
+                    ThreadTimeData[tdmList[i].Name.Split('.')[0]][i].Value = tdmList[i].Duration;
+                }
+            }          
+        }
+        private int ScanForThreadCount(List<TimingsDataModel> list)
+        {
+            int threads = 0;
+            int currentFrame = 0;
+            foreach (TimingsDataModel tdm in list)
+            {
+                if(tdm.Frame == currentFrame)
+                {
+                    threads++;
+                }
+                else
+                {
+                    return threads;
+                }
+            }
+            return 0;
+        }
+
         private void UpdateLatestMemoryCollection()
         {
             List<MemoryDataModel> mdmList = Repository.GetLastRender().Memory;

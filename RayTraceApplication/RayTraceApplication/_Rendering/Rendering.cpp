@@ -8,6 +8,7 @@
 #include "Tracing.h"
 #include "Rendering.h"
 #include "TimerManager.h"
+#include "MethodProfiler.h"
 #include "RTAParameters.h"
 
 // Cheers mate :D  np haha
@@ -68,132 +69,158 @@ void Renderer::BaselineRender(const std::vector<Sphere>& spheres, int iteration)
 }
 void Renderer::Render(Sphere* spheres[], int sphereCount, int iteration)
 {
-	unsigned width = RTAParameters::ResolutionWidth;
-	unsigned height = RTAParameters::ResolutionHeight;
-
-	Vector3* image = new Vector3[width * height];
-	Vector3* pixel = image;
-
-	float invWidth = 1 / float(width);
-	float invHeight = 1 / float(height);
-	float fov = 30;
-	float aspectratio = width / float(height);
-	float angle = tan(M_PI * 0.5 * fov / 180.0);
-
-	TimerManager::Instance()->GetTimer("Frames")->StartTracking("Frame_" + std::to_string(iteration), iteration);
-
-	for (unsigned y = 0; y < height; ++y)
+	MethodProfiler::StartTracking(std::string(__FUNCTION__), std::string("Render_" + std::to_string(iteration)), iteration);
 	{
-		for (unsigned x = 0; x < width; ++x, ++pixel)
+		unsigned width = RTAParameters::ResolutionWidth;
+		unsigned height = RTAParameters::ResolutionHeight;
+
+		Vector3* image = new Vector3[width * height];
+		Vector3* pixel = image;
+
+		float invWidth = 1 / float(width);
+		float invHeight = 1 / float(height);
+		float fov = 30;
+		float aspectratio = width / float(height);
+		float angle = tan(M_PI * 0.5 * fov / 180.0);
+
+		TimerManager::Instance()->GetTimer("Frames")->StartTracking("Frame_" + std::to_string(iteration), iteration);
+
 		{
-			float xx = (2 * ((x + 0.5) * invWidth) - 1) * angle * aspectratio;
-			float yy = (1 - 2 * ((y + 0.5) * invHeight)) * angle;
+			for (unsigned y = 0; y < height; ++y)
+			{
+				for (unsigned x = 0; x < width; ++x, ++pixel)
+				{
+					float xx = (2 * ((x + 0.5) * invWidth) - 1) * angle * aspectratio;
+					float yy = (1 - 2 * ((y + 0.5) * invHeight)) * angle;
 
-			Vector3 raydir = Vector3(xx, yy, -1).Normalise();
+					Vector3 raydir = Vector3(xx, yy, -1).Normalise();
 
-			*pixel = Tracing::Trace(Vector3(0), raydir, spheres, sphereCount, 0);
+					*pixel = Tracing::Trace(Vector3(0), raydir, spheres, sphereCount, 0, iteration);
+				}
+			}
 		}
-	}
 
-	TimerManager::Instance()->GetTimer("Frames")->EndTracking("Frame_" + std::to_string(iteration));
+		TimerManager::Instance()->GetTimer("Frames")->EndTracking("Frame_" + std::to_string(iteration));
 
-	std::cout << ">> Frame " << iteration << ": Sequential Renderer complete - Execution Time: " << TimerManager::Instance()->GetTimer("Frames")->GetExecutionTime("Frame_" + std::to_string(iteration)) << std::endl;
+		std::cout << ">> Frame " << iteration << ": Sequential Renderer complete - Execution Time: " << TimerManager::Instance()->GetTimer("Frames")->GetExecutionTime("Frame_" + std::to_string(iteration)) << std::endl;
+		std::cout << ">> Writing " << RTAParameters::FilenameTemplate << iteration << ".ppm" << std::endl;
 
-	std::cout << ">> Writing " << RTAParameters::FilenameTemplate << iteration << ".ppm" << std::endl;
+		TimerManager::Instance()->GetTimer("FileIO")->StartTracking("Frame_" + std::to_string(iteration), iteration);
 
-	std::string fileString = RTAParameters::PPMOutputPath + RTAParameters::FilenameTemplate + std::to_string(iteration) + ".ppm";
-	std::ofstream ofs(fileString.c_str(), std::ios::out | std::ios::binary);
-	if (ofs.is_open())
-	{
-		ofs << "P6\n" << RTAParameters::ResolutionWidth << " " << RTAParameters::ResolutionHeight << "\n255\n";
-		for (unsigned i = 0; i < RTAParameters::ResolutionWidth * RTAParameters::ResolutionHeight; ++i)
 		{
-			ofs << (unsigned char)(std::min(float(1), image[i].x) * 255) << (unsigned char)(std::min(float(1), image[i].y) * 255) << (unsigned char)(std::min(float(1), image[i].z) * 255);
+			std::string fileString = RTAParameters::PPMOutputPath + RTAParameters::FilenameTemplate + std::to_string(iteration) + ".ppm";
+			std::ofstream ofs(fileString.c_str(), std::ios::out | std::ios::binary);
+			if (ofs.is_open())
+			{
+				ofs << "P6\n" << RTAParameters::ResolutionWidth << " " << RTAParameters::ResolutionHeight << "\n255\n";
+				for (unsigned i = 0; i < RTAParameters::ResolutionWidth * RTAParameters::ResolutionHeight; ++i)
+				{
+					ofs << (unsigned char)(std::min(float(1), image[i].x) * 255) << (unsigned char)(std::min(float(1), image[i].y) * 255) << (unsigned char)(std::min(float(1), image[i].z) * 255);
+				}
+				ofs.close();
+			}
+			else
+			{
+				std::cout << fileString.c_str() << ": File IO FAILED!" << std::endl;
+			}
+			std::cout << ">> " << RTAParameters::FilenameTemplate << iteration << ".ppm file written" << std::endl << std::endl;
 		}
-		ofs.close();
-	}
-	else
-	{
-		std::cout << fileString.c_str() << ": File IO FAILED!" << std::endl;
-	}
-	std::cout << ">> " << RTAParameters::FilenameTemplate << iteration << ".ppm file written" << std::endl << std::endl;
 
-	delete[] image;
+		TimerManager::Instance()->GetTimer("FileIO")->EndTracking("Frame_" + std::to_string(iteration));
+
+		delete[] image;
+	}
+	MethodProfiler::EndTracking(std::string(__FUNCTION__), std::string("Render_" + std::to_string(iteration)));
 }
 
 void Renderer::ParallelRender(Sphere* spheres[], int sphereCount, int iteration, int threads)
 {
-	Vector3* image = new Vector3[RTAParameters::ResolutionWidth * RTAParameters::ResolutionHeight];
-	Vector3* pixel = image;
-
-	InverseWidth = 1 / float(RTAParameters::ResolutionWidth);
-	InverseHeight = 1 / float(RTAParameters::ResolutionHeight);
-	FieldOfView = 30;
-	AspectRatio = RTAParameters::ResolutionWidth / float(RTAParameters::ResolutionHeight);
-	Angle = tan(M_PI * 0.5 * FieldOfView / 180.0);
-
-	int startHeight = 0;
-	int heightPerThread = (RTAParameters::ResolutionHeight) / threads;
-
-	TimerManager::Instance()->GetTimer("Frames")->StartTracking("Frame_" + std::to_string(iteration), iteration);
-
-	std::thread* threadArray = new std::thread[threads - 1];
-	for (int thread = 0; thread < threads - 1; thread++)
+	MethodProfiler::StartTracking(std::string(__FUNCTION__), std::string("Render_" + std::to_string(iteration)), iteration);
 	{
-		std::cout << ">> Executing Render Thread: " << thread + 1 << std::endl;
+		Vector3* image = new Vector3[RTAParameters::ResolutionWidth * RTAParameters::ResolutionHeight];
+		Vector3* pixel = image;
 
-		int endHeight = startHeight + heightPerThread;
-		threadArray[thread] = std::thread(RenderThread, thread + 1, startHeight, endHeight, pixel, spheres, sphereCount, iteration);
+		InverseWidth = 1 / float(RTAParameters::ResolutionWidth);
+		InverseHeight = 1 / float(RTAParameters::ResolutionHeight);
+		FieldOfView = 30;
+		AspectRatio = RTAParameters::ResolutionWidth / float(RTAParameters::ResolutionHeight);
+		Angle = tan(M_PI * 0.5 * FieldOfView / 180.0);
 
-		startHeight = endHeight;
-	}
+		int startHeight = 0;
+		int heightPerThread = (RTAParameters::ResolutionHeight) / threads;
 
-	std::cout << ">> Executing Main Thread: " << std::endl;
+		TimerManager::Instance()->GetTimer("Frames")->StartTracking("Frame_" + std::to_string(iteration), iteration);
 
-	for (unsigned y = 0; y < RTAParameters::ResolutionHeight; ++y)
-	{
-		for (unsigned x = 0; x < RTAParameters::ResolutionWidth; ++x, ++pixel)
 		{
-			if ((y >= startHeight) && (y < (startHeight + heightPerThread)))
+			std::thread* threadArray = new std::thread[threads - 1];
+			for (int thread = 0; thread < threads - 1; thread++)
 			{
-				float xx = (2 * ((x + 0.5) * InverseWidth) - 1) * Angle * AspectRatio;
-				float yy = (1 - 2 * ((y + 0.5) * InverseHeight)) * Angle;
+				std::cout << ">> Executing Render Thread: " << thread + 1 << std::endl;
 
-				Vector3 raydir = Vector3(xx, yy, -1).Normalise();
+				int endHeight = startHeight + heightPerThread;
+				threadArray[thread] = std::thread(RenderThread, thread + 1, startHeight, endHeight, pixel, spheres, sphereCount, iteration);
 
-				*pixel = Tracing::Trace(Vector3(0), raydir, spheres, sphereCount, 0);
+				startHeight = endHeight;
+			}
+
+			std::cout << ">> Executing Main Thread: " << std::endl;
+
+			std::string threadTimerID = "RenderThread_MainThread." + std::to_string(iteration);
+			TimerManager::Instance()->GetTimer("RenderThreads")->StartTracking(threadTimerID, iteration);
+			{
+				for (unsigned y = 0; y < RTAParameters::ResolutionHeight; ++y)
+				{
+					for (unsigned x = 0; x < RTAParameters::ResolutionWidth; ++x, ++pixel)
+					{
+						if ((y >= startHeight) && (y < (startHeight + heightPerThread)))
+						{
+							float xx = (2 * ((x + 0.5) * InverseWidth) - 1) * Angle * AspectRatio;
+							float yy = (1 - 2 * ((y + 0.5) * InverseHeight)) * Angle;
+
+							Vector3 raydir = Vector3(xx, yy, -1).Normalise();
+
+							*pixel = Tracing::Trace(Vector3(0), raydir, spheres, sphereCount, 0, iteration);
+						}
+					}
+				}
+			}
+			TimerManager::Instance()->GetTimer("RenderThreads")->EndTracking(threadTimerID);
+
+			for (int i = 0; i < threads - 1; i++)
+			{
+				threadArray[i].join();
 			}
 		}
-	}
 
-	for (int i = 0; i < threads-1; i++)
-	{
-		threadArray[i].join();
-	}
+		TimerManager::Instance()->GetTimer("Frames")->EndTracking("Frame_" + std::to_string(iteration));
 
-	TimerManager::Instance()->GetTimer("Frames")->EndTracking("Frame_" + std::to_string(iteration));
+		std::cout << ">> Frame " << iteration << ": Render Threads complete - Execution Time: " << TimerManager::Instance()->GetTimer("Frames")->GetExecutionTime("Frame_" + std::to_string(iteration)) << std::endl;
+		std::cout << ">> Writing " << RTAParameters::FilenameTemplate << iteration << ".ppm" << std::endl;
 
-	std::cout << ">> Frame " << iteration << ": Render Threads complete - Execution Time: " << TimerManager::Instance()->GetTimer("Frames")->GetExecutionTime("Frame_" + std::to_string(iteration)) << std::endl;
-	std::cout << ">> Writing " << RTAParameters::FilenameTemplate << iteration << ".ppm" << std::endl;
-
-	std::string fileString = RTAParameters::PPMOutputPath + RTAParameters::FilenameTemplate + std::to_string(iteration) + ".ppm";
-	std::ofstream ofs(fileString.c_str(), std::ios::out | std::ios::binary);
-	if (ofs.is_open())
-	{
-		ofs << "P6\n" << RTAParameters::ResolutionWidth << " " << RTAParameters::ResolutionHeight << "\n255\n";
-		for (unsigned i = 0; i < RTAParameters::ResolutionWidth * RTAParameters::ResolutionHeight; ++i)
+		TimerManager::Instance()->GetTimer("FileIO")->StartTracking("Frame_" + std::to_string(iteration), iteration);
 		{
-			ofs << (unsigned char)(std::min(float(1), image[i].x) * 255) << (unsigned char)(std::min(float(1), image[i].y) * 255) << (unsigned char)(std::min(float(1), image[i].z) * 255);
+			std::string fileString = RTAParameters::PPMOutputPath + RTAParameters::FilenameTemplate + std::to_string(iteration) + ".ppm";
+			std::ofstream ofs(fileString.c_str(), std::ios::out | std::ios::binary);
+			if (ofs.is_open())
+			{
+				ofs << "P6\n" << RTAParameters::ResolutionWidth << " " << RTAParameters::ResolutionHeight << "\n255\n";
+				for (unsigned i = 0; i < RTAParameters::ResolutionWidth * RTAParameters::ResolutionHeight; ++i)
+				{
+					ofs << (unsigned char)(std::min(float(1), image[i].x) * 255) << (unsigned char)(std::min(float(1), image[i].y) * 255) << (unsigned char)(std::min(float(1), image[i].z) * 255);
+				}
+				ofs.close();
+			}
+			else
+			{
+				std::cout << fileString.c_str() << ": File IO FAILED!" << std::endl;
+			}
+			std::cout << ">> " << RTAParameters::FilenameTemplate << iteration << ".ppm file written" << std::endl << std::endl;
 		}
-		ofs.close();
-	}
-	else
-	{
-		std::cout << fileString.c_str() << ": File IO FAILED!" << std::endl;
-	}
-	std::cout << ">> " << RTAParameters::FilenameTemplate << iteration << ".ppm file written" << std::endl << std::endl;
+		TimerManager::Instance()->GetTimer("FileIO")->EndTracking("Frame_" + std::to_string(iteration));
 
-	delete[] image;
+		delete[] image;
+	}
+	MethodProfiler::EndTracking(std::string(__FUNCTION__), std::string("Render_" + std::to_string(iteration)));
 }
 void Renderer::RenderThread(int threadID, int start, int end, Vector3* pixel, Sphere* spheres[], int sphereCount, int iteration)
 {
@@ -210,7 +237,7 @@ void Renderer::RenderThread(int threadID, int start, int end, Vector3* pixel, Sp
 
 				Vector3 raydir = Vector3(xx, yy, -1).Normalise();
 
-				*pixel = Tracing::Trace(Vector3(0), raydir, spheres, sphereCount, 0);
+				*pixel = Tracing::Trace(Vector3(0), raydir, spheres, sphereCount, 0, iteration);
 			}
 		}
 	}

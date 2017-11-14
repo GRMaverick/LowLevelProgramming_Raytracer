@@ -274,6 +274,7 @@
     <ClCompile Include="_Rendering\Rendering.cpp" />
     <ClCompile Include="_Rendering\Tracing.cpp" />
     <ClCompile Include="_Utilities\FfmpegUtility.cpp" />
+    <ClCompile Include="_Utilities\MethodProfiler.cpp" />
     <ClCompile Include="_Utilities\Timer.cpp" />
     <ClCompile Include="_Utilities\TimerManager.cpp" />
   </ItemGroup>
@@ -298,6 +299,7 @@
     <ClInclude Include="_Rendering\Rendering.h" />
     <ClInclude Include="_Rendering\Tracing.h" />
     <ClInclude Include="_Utilities\FfmpegUtility.h" />
+    <ClInclude Include="_Utilities\MethodProfiler.h" />
     <ClInclude Include="_Utilities\Timer.h" />
     <ClInclude Include="_Utilities\TimerManager.h" />
   </ItemGroup>

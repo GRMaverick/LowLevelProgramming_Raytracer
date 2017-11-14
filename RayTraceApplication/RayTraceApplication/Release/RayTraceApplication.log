@@ -1,29 +1,29 @@
 ﻿  Rendering.cpp
-_Rendering\Rendering.cpp(36): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-_Rendering\Rendering.cpp(43): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+_Rendering\Rendering.cpp(37): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 _Rendering\Rendering.cpp(44): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-_Rendering\Rendering.cpp(81): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-_Rendering\Rendering.cpp(89): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-_Rendering\Rendering.cpp(90): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-_Rendering\Rendering.cpp(109): warning C4018: '<': signed/unsigned mismatch
-_Rendering\Rendering.cpp(133): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-_Rendering\Rendering.cpp(153): warning C4018: '<': signed/unsigned mismatch
-_Rendering\Rendering.cpp(155): warning C4018: '<': signed/unsigned mismatch
-_Rendering\Rendering.cpp(157): warning C4018: '>=': signed/unsigned mismatch
-_Rendering\Rendering.cpp(157): warning C4018: '<': signed/unsigned mismatch
-_Rendering\Rendering.cpp(159): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-_Rendering\Rendering.cpp(160): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-_Rendering\Rendering.cpp(184): warning C4018: '<': signed/unsigned mismatch
-_Rendering\Rendering.cpp(202): warning C4018: '<': signed/unsigned mismatch
-_Rendering\Rendering.cpp(204): warning C4018: '<': signed/unsigned mismatch
-_Rendering\Rendering.cpp(206): warning C4018: '>=': signed/unsigned mismatch
-_Rendering\Rendering.cpp(206): warning C4018: '<': signed/unsigned mismatch
-_Rendering\Rendering.cpp(208): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-_Rendering\Rendering.cpp(209): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+_Rendering\Rendering.cpp(45): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+_Rendering\Rendering.cpp(84): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+_Rendering\Rendering.cpp(93): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+_Rendering\Rendering.cpp(94): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+_Rendering\Rendering.cpp(116): warning C4018: '<': signed/unsigned mismatch
+_Rendering\Rendering.cpp(147): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+_Rendering\Rendering.cpp(171): warning C4018: '<': signed/unsigned mismatch
+_Rendering\Rendering.cpp(173): warning C4018: '<': signed/unsigned mismatch
+_Rendering\Rendering.cpp(175): warning C4018: '>=': signed/unsigned mismatch
+_Rendering\Rendering.cpp(175): warning C4018: '<': signed/unsigned mismatch
+_Rendering\Rendering.cpp(177): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+_Rendering\Rendering.cpp(178): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+_Rendering\Rendering.cpp(207): warning C4018: '<': signed/unsigned mismatch
+_Rendering\Rendering.cpp(229): warning C4018: '<': signed/unsigned mismatch
+_Rendering\Rendering.cpp(231): warning C4018: '<': signed/unsigned mismatch
+_Rendering\Rendering.cpp(233): warning C4018: '>=': signed/unsigned mismatch
+_Rendering\Rendering.cpp(233): warning C4018: '<': signed/unsigned mismatch
+_Rendering\Rendering.cpp(235): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+_Rendering\Rendering.cpp(236): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   Generating code
-  1 of 1133 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+  2 of 1217 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    22 functions had inline decision re-evaluated but remain unchanged
+    7 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   RayTraceApplication.vcxproj -> C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RayTraceApplication\Release\RayTraceApplication.exe
   RayTraceApplication.vcxproj -> C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RayTraceApplication\Release\RayTraceApplication.pdb (Full PDB)

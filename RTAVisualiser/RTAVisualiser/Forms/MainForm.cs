@@ -1,23 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Threading;
 
 using RTAVisualiser.Interfaces;
-using RTAVisualiser.Threading;
-using RTAVisualiser.DataModel;
-
-using LiveCharts;
-using LiveCharts.Wpf;
-using LiveCharts.Defaults;
-using LiveCharts.WinForms;
 
 using Unity.Attributes;
 
@@ -51,7 +37,9 @@ namespace RTAVisualiser.Forms
             InitializeComponent();
             InitialiseConfigGUI();
             
-            DurationAllCartesian.Series = CoreMapper.InitialiseTimingCollection();
+            DurationAllCartesian.Series = CoreMapper.InitialiseFrameTimeCollection();
+            TimingsCartesian2.Series = CoreMapper.InitialiseFrameTimeCollection();
+            ThreadingCartesian.Series = CoreMapper.InitialiseThreadTimeCollection();
 
             RenderPreview.Image = Image.FromFile("Config\\Image.jpg");
             RenderPreview.SizeMode = PictureBoxSizeMode.StretchImage;

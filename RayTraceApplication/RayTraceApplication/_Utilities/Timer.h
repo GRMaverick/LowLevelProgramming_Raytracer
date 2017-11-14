@@ -33,7 +33,6 @@ public:
 	
 private:
 	void DestroyList(TimerInfo* pNode);
-	void StartTrackingNode(TimerInfo* pNode, std::string name, int frame);
 	void EndTrackingNode(TimerInfo* pNode, std::string name);
 	void PopulateReport(TimerInfo* pNode);
 	double GetExecutionTimeRecursive(TimerInfo* pNode, std::string name);

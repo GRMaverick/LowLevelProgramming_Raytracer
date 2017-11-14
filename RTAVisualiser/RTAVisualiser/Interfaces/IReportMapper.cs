@@ -15,7 +15,9 @@ namespace RTAVisualiser.Interfaces
     {
         void Update();
 
-        SeriesCollection InitialiseTimingCollection();
+        SeriesCollection InitialiseFrameTimeCollection();
+        SeriesCollection InitialiseThreadTimeCollection();
+
         SeriesCollection InitialiseMemoryCollection();
         SeriesCollection InitialiseAllMethodsCollection();
     }

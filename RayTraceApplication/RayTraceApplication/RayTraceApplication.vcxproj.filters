@@ -118,6 +118,9 @@
     <ClCompile Include="_Utilities\TimerManager.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="_Utilities\MethodProfiler.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="_Core\BaseApplication.h">
@@ -184,6 +187,9 @@
       <Filter>Header Files\Core</Filter>
     </ClInclude>
     <ClInclude Include="_Utilities\TimerManager.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="_Utilities\MethodProfiler.h">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
   </ItemGroup>

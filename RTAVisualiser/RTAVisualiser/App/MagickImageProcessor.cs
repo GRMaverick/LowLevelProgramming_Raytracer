@@ -45,7 +45,7 @@ namespace RTAVisualiser.App
 
         private void Task_Exited(object sender, EventArgs e)
         {
-            Console.WriteLine("Process closed");
+            Console.WriteLine("Magick - Process Closed");
             if (!Task.HasExited)
             {
                 Task.CancelOutputRead();

@@ -43,7 +43,7 @@ namespace RTAVisualiser.App
 
         public void Task_Exited(object sender, EventArgs e)
         {
-            Console.WriteLine("Process closed");
+            Console.WriteLine("Raytracer - Process Closed");
             Task.CancelOutputRead();
             Task.CancelErrorRead();
         }
