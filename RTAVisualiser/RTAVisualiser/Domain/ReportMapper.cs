@@ -150,28 +150,33 @@ namespace RTAVisualiser.Mapper
             List<TimingsDataModel> tdmList = Repository.GetLastRender().ThreadTimes;
 
             int threadCount = ScanForThreadCount(tdmList);
-
-            if ((tdmList.Count / threadCount) != ThreadTimeData.Count)
+            try
             {
-                foreach (TimingsDataModel tdm in tdmList)
+                if ((tdmList.Count / threadCount) != ThreadTimeData.Count)
                 {
-                    if (!ThreadTimeData.ContainsKey(tdm.Name.Split('.')[0]))
-                        ThreadTimeData[tdm.Name.Split('.')[0]] = new ChartValues<ObservableValue>();
-                    ThreadTimeData[tdm.Name.Split('.')[0]].Clear();
-                }
+                    foreach (TimingsDataModel tdm in tdmList)
+                    {
+                        if (!ThreadTimeData.ContainsKey(tdm.Name.Split('.')[0]))
+                            ThreadTimeData[tdm.Name.Split('.')[0]] = new ChartValues<ObservableValue>();
+                        ThreadTimeData[tdm.Name.Split('.')[0]].Clear();
+                    }
 
-                foreach (TimingsDataModel tdm in tdmList)
+                    foreach (TimingsDataModel tdm in tdmList)
+                    {
+                        ThreadTimeData[tdm.Name.Split('.')[0]].Add(new ObservableValue(tdm.Duration));
+                    }
+                }
+                else
                 {
-                    ThreadTimeData[tdm.Name.Split('.')[0]].Add(new ObservableValue(tdm.Duration));
+                    for (int i = 0; i < tdmList.Count; i++)
+                    {
+                        ThreadTimeData[tdmList[i].Name.Split('.')[0]][i].Value = tdmList[i].Duration;
+                    }
                 }
             }
-            else
+            catch (Exception ex)
             {
-                for (int i = 0; i < tdmList.Count; i++)
-                {
-                    ThreadTimeData[tdmList[i].Name.Split('.')[0]][i].Value = tdmList[i].Duration;
-                }
-            }          
+            }
         }
         private int ScanForThreadCount(List<TimingsDataModel> list)
         {

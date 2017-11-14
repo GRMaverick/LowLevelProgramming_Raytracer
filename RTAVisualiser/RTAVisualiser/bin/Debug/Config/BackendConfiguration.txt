@@ -2,10 +2,11 @@ ResolutionWidth	640
 ResolutionHeight	480
 FPS	60
 MaxFrames	10
-MP4OutputPath	Output\2017-11-14_02-58-04\MP4\
-PPMOutputPath	Output\2017-11-14_02-58-04\PPM\
-ReportPath	Output\2017-11-14_02-58-04\Reports\
+MP4OutputPath	Output\PreviewRender\MP4\
+PPMOutputPath	Output\PreviewRender\PPM\
+ReportPath	Output\PreviewRender\Reports\
 FilenameTemplate	SpheresFrame_
 Parallel	True
 Threads	4
 Physics	False
+MethodProfiling	False

@@ -13,6 +13,7 @@ public:
 
 	static bool Parallel;
 	static bool Physics;
+	static bool MethodProfiling;
 
 	static std::string RootOutputPath;
 	static std::string ApplicationType;

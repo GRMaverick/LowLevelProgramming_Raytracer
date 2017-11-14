@@ -13,6 +13,7 @@ int RTAParameters::FramesPerSecond = 0;
 
 bool RTAParameters::Parallel = false;
 bool RTAParameters::Physics = false;
+bool RTAParameters::MethodProfiling = false;
 
 std::string RTAParameters::ReportPath = "";
 std::string RTAParameters::RootOutputPath = "";
@@ -87,6 +88,10 @@ bool RTAParameters::LoadParametersCSV(char* filename)
 		else if (columns[0] == "Physics")
 		{
 			Physics = (columns[1] == "True") ? true : false;
+		}
+		else if (columns[0] == "MethodProfiling")
+		{
+			MethodProfiling = (columns[1] == "True") ? true : false;
 		}
 	}
 

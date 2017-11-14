@@ -45,7 +45,7 @@ namespace RTAVisualiser.Debugging
             }
             else
             {
-                TextBox.Clear();
+                // TextBox.Clear();
                 TextBox.AppendText(Content.ToString());
             }
             Content.Clear();

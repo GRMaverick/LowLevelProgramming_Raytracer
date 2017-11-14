@@ -26,7 +26,7 @@ namespace RTAVisualiser.Forms
         {
             Magick = magick;
             Raytracer = raytracer;
-            Magick.Task.Exited += Magick_Exited;
+            //Magick.Task.Exited += Magick_Exited;
 
             AppSettings = settings;
             CurrentLastRender = AppSettings.RepositoryLastAccess;
@@ -60,8 +60,8 @@ namespace RTAVisualiser.Forms
         }
         private void UpdatePreview()
         {
-            RenderPreview.Image = Image.FromFile($"Config\\Image_{CurrentPreview}.jpg");
-            RenderPreview.SizeMode = PictureBoxSizeMode.StretchImage;
+            //RenderPreview.Image = Image.FromFile($"Config\\Image_{CurrentPreview}.jpg");
+            //RenderPreview.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void MagickTask(object sender, EventArgs e)
@@ -148,6 +148,12 @@ namespace RTAVisualiser.Forms
             ConfigDomain.SetParallel(cb.Checked);
 
             ThreadCountNUD.Enabled = cb.Checked;
+        }
+
+        private void MethodProfiling_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = (CheckBox)sender;
+            ConfigDomain.SetMethodProfiling(cb.Checked);
         }
     }
 }

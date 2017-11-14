@@ -259,6 +259,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="_Configuration\RTAParameters.cpp" />
     <ClCompile Include="_Core\BackendApplication.cpp" />
     <ClCompile Include="_Mathematics\Vector3.cpp" />
@@ -275,10 +276,11 @@
     <ClCompile Include="_Rendering\Tracing.cpp" />
     <ClCompile Include="_Utilities\FfmpegUtility.cpp" />
     <ClCompile Include="_Utilities\MethodProfiler.cpp" />
-    <ClCompile Include="_Utilities\Timer.cpp" />
+    <ClCompile Include="_Utilities\TimerLL.cpp" />
     <ClCompile Include="_Utilities\TimerManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="_Configuration\RTAParameters.h" />
     <ClInclude Include="_Core\BackendApplication.h" />
     <ClInclude Include="_Core\BaseApplication.h" />
@@ -300,7 +302,7 @@
     <ClInclude Include="_Rendering\Tracing.h" />
     <ClInclude Include="_Utilities\FfmpegUtility.h" />
     <ClInclude Include="_Utilities\MethodProfiler.h" />
-    <ClInclude Include="_Utilities\Timer.h" />
+    <ClInclude Include="_Utilities\TimerLL.h" />
     <ClInclude Include="_Utilities\TimerManager.h" />
   </ItemGroup>
   <ItemGroup>

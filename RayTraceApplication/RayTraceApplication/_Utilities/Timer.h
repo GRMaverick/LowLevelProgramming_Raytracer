@@ -5,41 +5,28 @@
 #include <vector>
 #include <chrono>
 
-class TimerInfo
-{
-public:
-	std::string																Name;
-	int																			Frame;
-	double																	Duration;
-	std::chrono::steady_clock::time_point					StartTime;
-	std::chrono::steady_clock::time_point					EndTime;
-	TimerInfo*															pNext;
-	TimerInfo*															pPrevious;
-};
-
 class Timer
 {
 public:
-	Timer(std::string type);
+	Timer(void);
 	~Timer(void);
 
-	std::string GetName(void);
-
-	void StartTracking(std::string name, int frame);
+	void Start(void);
+	void Stop(void);
+	void Reset(void);
+	void StartTracking(std::string name);
 	void EndTracking(std::string name);
-	double GetExecutionTime(std::string name);
 
+	void GenerateReport(void);
 	void ExportReport(void);
-	
+
 private:
-	void DestroyList(TimerInfo* pNode);
-	void EndTrackingNode(TimerInfo* pNode, std::string name);
-	void PopulateReport(TimerInfo* pNode);
-	double GetExecutionTimeRecursive(TimerInfo* pNode, std::string name);
-
-	TimerInfo*									m_HeadNode;
-	TimerInfo*									m_TailNode;
-
-	std::string										m_Name;
-	std::vector<TimerInfo*>				m_TimingInfo;
+	std::vector<std::string>																m_TrackingIds;
+	std::map<std::string, double>														m_FrameTimes;
+	std::map<std::string, std::chrono::steady_clock::time_point>	m_TrackingEnds;
+	std::map<std::string, std::chrono::steady_clock::time_point>	m_TrackingStarts;
+	
+	std::chrono::steady_clock::time_point										m_LastLap;
+	std::chrono::steady_clock::time_point										m_StartTime;
+	std::chrono::steady_clock::time_point										m_EndTime;
 };

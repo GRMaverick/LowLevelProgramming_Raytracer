@@ -10,7 +10,8 @@ std::vector<MethodInfo*>	MethodProfiler::m_MethodInfo	= std::vector<MethodInfo*>
 
 void MethodProfiler::StartTracking(std::string& methodName, std::string& entryName, int& frame)
 {
-	StartTrackingSearch(m_HeadNode, methodName, entryName, frame);
+	if(RTAParameters::MethodProfiling)
+		StartTrackingSearch(m_HeadNode, methodName, entryName, frame);
 }
 void MethodProfiler::StartTrackingSearch(MethodInfo*& pNode, std::string& methodName, std::string& entryName, int& frame)
 {
@@ -42,7 +43,8 @@ void MethodProfiler::StartTrackingSearch(MethodInfo*& pNode, std::string& method
 
 void MethodProfiler::EndTracking(std::string& methodName, std::string& entryName)
 {
-	EndTrackingSearch(m_HeadNode, methodName, entryName);
+	if(RTAParameters::MethodProfiling)
+		EndTrackingSearch(m_HeadNode, methodName, entryName);
 }
 void MethodProfiler::EndTrackingSearch(MethodInfo* pNode, std::string& methodName, std::string& entryName)
 {
@@ -61,25 +63,28 @@ void MethodProfiler::EndTrackingSearch(MethodInfo* pNode, std::string& methodNam
 
 void MethodProfiler::ExportReport()
 {
-	std::cout << "MethodProfiler::ExportReport() :-" << std::endl;
-
-	m_MethodInfo.clear();
-	PopulateReport(m_HeadNode);
-
-	std::ofstream ofs(std::string(RTAParameters::ReportPath + "\\MethodCalls\\MethodProfiling.csv"), std::ofstream::out);
-	if (ofs.is_open())
+	if (RTAParameters::MethodProfiling)
 	{
-		ofs << "METHOD_NAME\tTIMES_CALLED\tTOTAL_TIME_SPENT" << std::endl;
-		for (MethodInfo* data : m_MethodInfo)
+		std::cout << "MethodProfiler::ExportReport() :-" << std::endl;
+
+		m_MethodInfo.clear();
+		PopulateReport(m_HeadNode);
+
+		std::ofstream ofs(std::string(RTAParameters::ReportPath + "\\MethodCalls\\MethodProfiling.csv"), std::ofstream::out);
+		if (ofs.is_open())
 		{
-			ofs << data->MethodName << "\t" << data->TimesCalled << "\t" << data->Duration << std::endl;
-			std::cout << data->MethodName << "\t" << data->TimesCalled << "\t" << data->Duration << std::endl;
+			ofs << "METHOD_NAME\tTIMES_CALLED\tTOTAL_TIME_SPENT" << std::endl;
+			for (MethodInfo* data : m_MethodInfo)
+			{
+				ofs << data->MethodName << "\t" << data->TimesCalled << "\t" << data->Duration << std::endl;
+				std::cout << data->MethodName << "\t" << data->TimesCalled << "\t" << data->Duration << std::endl;
+			}
 		}
-	}
-	else
-	{
-		std::cout << std::string(RTAParameters::ReportPath + "\\MethodCalls\\MethodProfiling_" + std::to_string(m_HeadNode->Frame) + ".csv").c_str() << " File IO FAILED" << std::endl;
-		return;
+		else
+		{
+			std::cout << std::string(RTAParameters::ReportPath + "\\MethodCalls\\MethodProfiling_" + std::to_string(m_HeadNode->Frame) + ".csv").c_str() << " File IO FAILED" << std::endl;
+			return;
+		}
 	}
 }
 void MethodProfiler::PopulateReport(MethodInfo* pNode)

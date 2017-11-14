@@ -34,6 +34,7 @@ namespace RTAVisualiser.Repositories
                 configWriter.WriteLine($"Parallel\t{cdm.Parallel}");
                 configWriter.WriteLine($"Threads\t{cdm.Threads}");
                 configWriter.WriteLine($"Physics\t{cdm.Physics}");
+                configWriter.WriteLine($"MethodProfiling\t{cdm.MethodProfiling}");
                 configWriter.Close();
 
                 System.IO.StreamWriter configPreviewWriter = new System.IO.StreamWriter(AppSettings.BackendConfigDirectory + "PreviewBackendConfiguration.txt");
@@ -48,6 +49,7 @@ namespace RTAVisualiser.Repositories
                 configPreviewWriter.WriteLine($"Parallel\tFalse");
                 configPreviewWriter.WriteLine($"Threads\t1");
                 configPreviewWriter.WriteLine($"Physics\t{cdm.Physics}");
+                configPreviewWriter.WriteLine($"MethodProfiling\t{cdm.MethodProfiling}");
                 configPreviewWriter.Close();
             }
             catch(Exception ex)
@@ -112,6 +114,10 @@ namespace RTAVisualiser.Repositories
                         else if (columns[0] == "Physics")
                         {
                             cdm.Physics = Convert.ToBoolean(columns[1]);
+                        }
+                        else if (columns[0] == "MethodProfiling")
+                        {
+                            cdm.MethodProfiling = Convert.ToBoolean(columns[1]);
                         }
 
                         line = reader.ReadLine();

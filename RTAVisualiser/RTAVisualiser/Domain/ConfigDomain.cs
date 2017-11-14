@@ -59,6 +59,11 @@ namespace RTAVisualiser.Mapper
             Configuration.Physics = isAnimated;
             Repository.SetConfiguration(Configuration);
         }
+        public void SetMethodProfiling(bool isProfiling)
+        {
+            Configuration.MethodProfiling = isProfiling;
+            Repository.SetConfiguration(Configuration);
+        }
         public void SetMP4OutputPath(string path)
         {
             Configuration.MP4OutputPath = path;
@@ -79,7 +84,9 @@ namespace RTAVisualiser.Mapper
             Configuration.FilenameTemplate = filename;
             Repository.SetConfiguration(Configuration);
         }
-         
+
+
+
         public int GetResolutionWidth()
         {
             return Configuration.ResolutionWidth;
@@ -107,6 +114,10 @@ namespace RTAVisualiser.Mapper
         public bool GetPhysics()
         {
             return Configuration.Physics;
+        }
+        public bool GetMethodProfiling()
+        {
+            return Configuration.MethodProfiling;
         }
         public string GetMP4OutputPath()
         {

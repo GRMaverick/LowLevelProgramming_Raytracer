@@ -17,6 +17,7 @@ namespace RTAVisualiser.Interfaces
         void SetThreads(int threads);
         void SetParallel(bool isConcurrent);
         void SetPhysics(bool isAnimated);
+        void SetMethodProfiling(bool isAnimated);
         void SetMP4OutputPath(string path);
         void SetPPMOutputPath(string path);
         void SetReportPath(string path);
@@ -28,7 +29,8 @@ namespace RTAVisualiser.Interfaces
         int GetFramesPerSecond();
         int GetThreads();
         bool GetParallel();
-        bool GetPhysics();                
+        bool GetPhysics();
+        bool GetMethodProfiling();
         string GetMP4OutputPath();
         string GetPPMOutputPath();
         string GetReportPath();

@@ -61,12 +61,13 @@
             this.tabControl4 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.TimingsCartesian2 = new LiveCharts.WinForms.CartesianChart();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.ThreadingCartesian = new LiveCharts.WinForms.CartesianChart();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -212,6 +213,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.checkBox1);
             this.groupBox2.Controls.Add(this.ThreadCountNUD);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.PhysicsTickBox);
@@ -231,7 +233,7 @@
             // 
             // ThreadCountNUD
             // 
-            this.ThreadCountNUD.Location = new System.Drawing.Point(215, 98);
+            this.ThreadCountNUD.Location = new System.Drawing.Point(285, 98);
             this.ThreadCountNUD.Maximum = new decimal(new int[] {
             8,
             0,
@@ -255,7 +257,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(141, 101);
+            this.label4.Location = new System.Drawing.Point(211, 101);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 13);
             this.label4.TabIndex = 10;
@@ -460,25 +462,6 @@
             this.splitContainer1.SplitterDistance = 463;
             this.splitContainer1.TabIndex = 0;
             // 
-            // tabPage8
-            // 
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(1874, 981);
-            this.tabPage8.TabIndex = 1;
-            this.tabPage8.Text = "Memory";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // tabPage9
-            // 
-            this.tabPage9.Location = new System.Drawing.Point(4, 22);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(1874, 981);
-            this.tabPage9.TabIndex = 2;
-            this.tabPage9.Text = "Method Calling";
-            this.tabPage9.UseVisualStyleBackColor = true;
-            // 
             // groupBox6
             // 
             this.groupBox6.AutoSize = true;
@@ -523,6 +506,36 @@
             this.ThreadingCartesian.TabIndex = 0;
             this.ThreadingCartesian.Text = "cartesianChart3";
             // 
+            // tabPage8
+            // 
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(1874, 981);
+            this.tabPage8.TabIndex = 1;
+            this.tabPage8.Text = "Memory";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(1874, 981);
+            this.tabPage9.TabIndex = 2;
+            this.tabPage9.Text = "Method Calling";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(215, 23);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(102, 17);
+            this.checkBox1.TabIndex = 12;
+            this.checkBox1.Text = "Method Profiling";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.MethodProfiling_CheckedChanged);
+            // 
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(1904, 1041);
@@ -554,9 +567,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -601,5 +612,6 @@
         private LiveCharts.WinForms.CartesianChart TimingsCartesian2;
         private System.Windows.Forms.GroupBox groupBox7;
         private LiveCharts.WinForms.CartesianChart ThreadingCartesian;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

@@ -1,4 +1,23 @@
-﻿  Rendering.cpp
+﻿  main.cpp
+main.cpp(73): warning C4305: 'argument': truncation from 'double' to 'float'
+main.cpp(74): warning C4305: 'argument': truncation from 'double' to 'float'
+main.cpp(75): warning C4305: 'argument': truncation from 'double' to 'float'
+main.cpp(76): warning C4305: 'argument': truncation from 'double' to 'float'
+main.cpp(78): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+main.cpp(79): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  RTAParameters.cpp
+  BackendApplication.cpp
+  Vector3.cpp
+  MemoryPool.cpp
+  MemoryPoolManager.cpp
+  Floor.cpp
+  Sphere.cpp
+  BoundingBox.cpp
+  BoundingSphere.cpp
+  Collisions.cpp
+  Octree.cpp
+  Physics.cpp
+  Rendering.cpp
 _Rendering\Rendering.cpp(37): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 _Rendering\Rendering.cpp(44): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 _Rendering\Rendering.cpp(45): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
@@ -20,10 +39,31 @@ _Rendering\Rendering.cpp(233): warning C4018: '>=': signed/unsigned mismatch
 _Rendering\Rendering.cpp(233): warning C4018: '<': signed/unsigned mismatch
 _Rendering\Rendering.cpp(235): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 _Rendering\Rendering.cpp(236): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Tracing.cpp
+_Rendering\Tracing.cpp(49): warning C4305: 'initializing': truncation from 'double' to 'float'
+_Rendering\Tracing.cpp(60): warning C4305: 'argument': truncation from 'double' to 'const float'
+_Rendering\Tracing.cpp(72): warning C4305: 'initializing': truncation from 'double' to 'float'
+_Rendering\Tracing.cpp(147): warning C4305: 'initializing': truncation from 'double' to 'float'
+_Rendering\Tracing.cpp(158): warning C4305: 'argument': truncation from 'double' to 'const float'
+_Rendering\Tracing.cpp(170): warning C4305: 'initializing': truncation from 'double' to 'float'
+_Rendering\Tracing.cpp(223): warning C4018: '<': signed/unsigned mismatch
+_Rendering\Tracing.cpp(251): warning C4305: 'initializing': truncation from 'double' to 'float'
+_Rendering\Tracing.cpp(262): warning C4305: 'argument': truncation from 'double' to 'const float'
+_Rendering\Tracing.cpp(274): warning C4305: 'initializing': truncation from 'double' to 'float'
+_Rendering\Tracing.cpp(289): warning C4018: '<': signed/unsigned mismatch
+_Rendering\Tracing.cpp(297): warning C4018: '<': signed/unsigned mismatch
+  FfmpegUtility.cpp
+  MethodProfiler.cpp
+  Timer.cpp
+  TimerManager.cpp
+_Utilities\TimerManager.cpp(11): warning C4018: '<': signed/unsigned mismatch
+_Utilities\TimerManager.cpp(30): warning C4018: '<': signed/unsigned mismatch
+_Utilities\TimerManager.cpp(41): warning C4018: '<': signed/unsigned mismatch
+_Utilities\TimerManager.cpp(54): warning C4018: '<': signed/unsigned mismatch
   Generating code
-  2 of 1217 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    7 functions had inline decision re-evaluated but remain unchanged
+  1209 of 1217 functions (99.3%) were compiled, the rest were copied from previous compilation.
+    15 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  RayTraceApplication.vcxproj -> C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RayTraceApplication\Release\RayTraceApplication.exe
-  RayTraceApplication.vcxproj -> C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RayTraceApplication\Release\RayTraceApplication.pdb (Full PDB)
+  RayTraceApplication.vcxproj -> C:\Users\b020612e\Source\Repos\LowLevelProgramming_Assignment\RayTraceApplication\Release\RayTraceApplication.exe
+  RayTraceApplication.vcxproj -> C:\Users\b020612e\Source\Repos\LowLevelProgramming_Assignment\RayTraceApplication\Release\RayTraceApplication.pdb (Full PDB)

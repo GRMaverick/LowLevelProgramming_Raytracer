@@ -1,24 +1,65 @@
-﻿  Rendering.cpp
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(37): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(44): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(45): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(84): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(93): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(94): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(116): warning C4018: '<': signed/unsigned mismatch
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(147): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(171): warning C4018: '<': signed/unsigned mismatch
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(173): warning C4018: '<': signed/unsigned mismatch
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(175): warning C4018: '>=': signed/unsigned mismatch
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(175): warning C4018: '<': signed/unsigned mismatch
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(177): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(178): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(207): warning C4018: '<': signed/unsigned mismatch
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(229): warning C4018: '<': signed/unsigned mismatch
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(231): warning C4018: '<': signed/unsigned mismatch
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(233): warning C4018: '>=': signed/unsigned mismatch
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(233): warning C4018: '<': signed/unsigned mismatch
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(235): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(236): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  RayTraceApplication.vcxproj -> C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RayTraceApplication\Debug\RayTraceApplication.exe
-  RayTraceApplication.vcxproj -> C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RayTraceApplication\Debug\RayTraceApplication.pdb (Full PDB)
+﻿  TimerManager.cpp
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_utilities\timermanager.cpp(11): warning C4018: '<': signed/unsigned mismatch
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_utilities\timermanager.cpp(30): warning C4018: '<': signed/unsigned mismatch
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_utilities\timermanager.cpp(41): warning C4018: '<': signed/unsigned mismatch
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_utilities\timermanager.cpp(54): warning C4018: '<': signed/unsigned mismatch
+  Timer.cpp
+  MethodProfiler.cpp
+  FfmpegUtility.cpp
+  Tracing.cpp
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\tracing.cpp(49): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\tracing.cpp(60): warning C4305: 'argument': truncation from 'double' to 'const float'
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\tracing.cpp(72): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\tracing.cpp(147): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\tracing.cpp(158): warning C4305: 'argument': truncation from 'double' to 'const float'
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\tracing.cpp(170): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\tracing.cpp(223): warning C4018: '<': signed/unsigned mismatch
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\tracing.cpp(251): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\tracing.cpp(262): warning C4305: 'argument': truncation from 'double' to 'const float'
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\tracing.cpp(274): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\tracing.cpp(289): warning C4018: '<': signed/unsigned mismatch
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\tracing.cpp(297): warning C4018: '<': signed/unsigned mismatch
+  Rendering.cpp
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(37): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(44): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(45): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(84): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(93): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(94): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(116): warning C4018: '<': signed/unsigned mismatch
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(147): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(171): warning C4018: '<': signed/unsigned mismatch
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(173): warning C4018: '<': signed/unsigned mismatch
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(175): warning C4018: '>=': signed/unsigned mismatch
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(175): warning C4018: '<': signed/unsigned mismatch
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(177): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(178): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(207): warning C4018: '<': signed/unsigned mismatch
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(229): warning C4018: '<': signed/unsigned mismatch
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(231): warning C4018: '<': signed/unsigned mismatch
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(233): warning C4018: '>=': signed/unsigned mismatch
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(233): warning C4018: '<': signed/unsigned mismatch
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(235): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\_rendering\rendering.cpp(236): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Physics.cpp
+  Octree.cpp
+  Collisions.cpp
+  BoundingSphere.cpp
+  BoundingBox.cpp
+  Sphere.cpp
+  Floor.cpp
+  MemoryPoolManager.cpp
+  MemoryPool.cpp
+  Vector3.cpp
+  BackendApplication.cpp
+  RTAParameters.cpp
+  main.cpp
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\main.cpp(73): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\main.cpp(74): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\main.cpp(75): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\main.cpp(76): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\main.cpp(78): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\b020612e\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\main.cpp(79): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
+  RayTraceApplication.vcxproj -> C:\Users\b020612e\Source\Repos\LowLevelProgramming_Assignment\RayTraceApplication\Debug\RayTraceApplication.exe
+  RayTraceApplication.vcxproj -> C:\Users\b020612e\Source\Repos\LowLevelProgramming_Assignment\RayTraceApplication\Debug\RayTraceApplication.pdb (Full PDB)
