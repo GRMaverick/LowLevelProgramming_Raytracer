@@ -20,7 +20,7 @@ namespace RTAVisualiser.Mapper
         private IReportRepository Repository { get; set; } = null;
 
         private ChartValues<ObservableValue> FrameTimeData { get; set; } = new ChartValues<ObservableValue>();
-        private Dictionary<string, ChartValues<ObservableValue>> ThreadTimeData { get; set; } = new Dictionary<string, ChartValues<ObservableValue>>(8);
+        private Dictionary<int, ChartValues<ObservableValue>> ThreadTimeData { get; set; } = new Dictionary<int, ChartValues<ObservableValue>>(8);
 
         private ChartValues<ObservableValue> PeakUsage { get; set; } = new ChartValues<ObservableValue>();
         private ChartValues<ObservableValue> UsedMemory { get; set; } = new ChartValues<ObservableValue>();
@@ -31,11 +31,7 @@ namespace RTAVisualiser.Mapper
         {
             Repository = repo;
 
-            Repository.Fetch();
-
-            UpdateLatestFrameTimeCollection();
-            UpdateLatestThreadTimeCollection();
-            UpdateLatestMemoryCollection();
+            Update();
         }
 
         public void Update()
@@ -43,7 +39,7 @@ namespace RTAVisualiser.Mapper
             Repository.Fetch();
 
             UpdateLatestFrameTimeCollection();
-            UpdateLatestThreadTimeCollection();
+            //UpdateLatestThreadTimeCollection();
             UpdateLatestMemoryCollection();
         }
 
@@ -79,12 +75,12 @@ namespace RTAVisualiser.Mapper
         {
             SeriesCollection collection = new SeriesCollection();
 
-            foreach(string s in ThreadTimeData.Keys.ToList())
+            foreach(int i in ThreadTimeData.Keys.ToList())
             {
                 collection.Add(new LineSeries()
                 {
-                    Title = s,
-                    Values = ThreadTimeData[s],
+                    Title = "Thread " + Convert.ToString(i),
+                    Values = ThreadTimeData[i],
                 });
             }
             
@@ -154,28 +150,35 @@ namespace RTAVisualiser.Mapper
             {
                 if ((tdmList.Count / threadCount) != ThreadTimeData.Count)
                 {
-                    foreach (TimingsDataModel tdm in tdmList)
+                    for(int i = 0; i < threadCount; i++)
                     {
-                        if (!ThreadTimeData.ContainsKey(tdm.Name.Split('.')[0]))
-                            ThreadTimeData[tdm.Name.Split('.')[0]] = new ChartValues<ObservableValue>();
-                        ThreadTimeData[tdm.Name.Split('.')[0]].Clear();
+                        if (!ThreadTimeData.ContainsKey(i))
+                            ThreadTimeData[i] = new ChartValues<ObservableValue>();
+                        ThreadTimeData[i].Clear();
                     }
 
-                    foreach (TimingsDataModel tdm in tdmList)
+                    for (int i = 0; i < tdmList.Count;  i += (tdmList.Count / threadCount))
                     {
-                        ThreadTimeData[tdm.Name.Split('.')[0]].Add(new ObservableValue(tdm.Duration));
+                        for (int j = 0; j < threadCount; j++)
+                        {
+                            ThreadTimeData[j].Add(new ObservableValue(tdmList[i+j].Duration));
+                        }
                     }
                 }
                 else
                 {
-                    for (int i = 0; i < tdmList.Count; i++)
+                    for (int i = 0; i < tdmList.Count; i += (tdmList.Count / threadCount))
                     {
-                        ThreadTimeData[tdmList[i].Name.Split('.')[0]][i].Value = tdmList[i].Duration;
+                        for (int j = 0; j < threadCount; j++)
+                        {
+                            ThreadTimeData[j][i].Value = tdmList[i+j].Duration;
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"ReportMapper.cs:179:- EXCEPTION CAUGHT: {ex.Message}");
             }
         }
         private int ScanForThreadCount(List<TimingsDataModel> list)
@@ -188,12 +191,8 @@ namespace RTAVisualiser.Mapper
                 {
                     threads++;
                 }
-                else
-                {
-                    return threads;
-                }
             }
-            return 0;
+            return threads;
         }
 
         private void UpdateLatestMemoryCollection()

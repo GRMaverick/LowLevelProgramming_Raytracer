@@ -39,7 +39,7 @@ namespace RTAVisualiser.Debugging
                 }
                 catch(Exception ex)
                 {
-                    Console.WriteLine("EXCEPTION: (" + ex.Message + "): " + ex);
+                    Console.WriteLine($"RichTextBoxWriter.cs:42:- EXCEPTION CAUGHT: {ex.Message}");
                     return;
                 }
             }
@@ -68,7 +68,7 @@ namespace RTAVisualiser.Debugging
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("EXCEPTION: (" + ex.Message + "): " + ex);
+                    Console.WriteLine($"ReportMapper.cs:179:- EXCEPTION CAUGHT: {ex.Message}");
                     return;
                 }
             }

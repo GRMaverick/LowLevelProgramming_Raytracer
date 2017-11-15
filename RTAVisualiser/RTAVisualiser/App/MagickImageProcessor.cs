@@ -31,9 +31,9 @@ namespace RTAVisualiser.App
             Task.StartInfo.RedirectStandardOutput = true;
             Task.StartInfo.RedirectStandardError = true;
             Task.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-            Task.StartInfo.Arguments = $"/C .\\PPMtoJPG.cmd {arguments}";
+            Task.StartInfo.Arguments = $"/C .\\RTA_Deliverable\\PPMtoJPG.cmd {arguments}";
 
-            Console.WriteLine($"Launching .\\PPMtoJPG.cmd {arguments}");
+            Console.WriteLine($"Launching .\\RTA_Deliverable\\PPMtoJPG.cmd {arguments}");
             Task.Start();
 
             if (Task.HasExited)

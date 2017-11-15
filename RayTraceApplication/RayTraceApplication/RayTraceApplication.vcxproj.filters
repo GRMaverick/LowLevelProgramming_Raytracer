@@ -118,10 +118,10 @@
     <ClCompile Include="_Utilities\MethodProfiler.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
-    <ClCompile Include="Timer.cpp">
+    <ClCompile Include="_Utilities\TimerLL.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
-    <ClCompile Include="_Utilities\TimerLL.cpp">
+    <ClCompile Include="_Utilities\Timer.cpp">
       <Filter>Source Files\Utilities</Filter>
     </ClCompile>
   </ItemGroup>
@@ -192,10 +192,10 @@
     <ClInclude Include="_Utilities\MethodProfiler.h">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="Timer.h">
+    <ClInclude Include="_Utilities\TimerLL.h">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="_Utilities\TimerLL.h">
+    <ClInclude Include="_Utilities\Timer.h">
       <Filter>Header Files\Utilities</Filter>
     </ClInclude>
   </ItemGroup>

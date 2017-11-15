@@ -26,7 +26,7 @@ namespace RTAVisualiser.Forms
         {
             Magick = magick;
             Raytracer = raytracer;
-            //Magick.Task.Exited += Magick_Exited;
+            Magick.Task.Exited += Magick_Exited;
 
             AppSettings = settings;
             CurrentLastRender = AppSettings.RepositoryLastAccess;
@@ -60,8 +60,8 @@ namespace RTAVisualiser.Forms
         }
         private void UpdatePreview()
         {
-            //RenderPreview.Image = Image.FromFile($"Config\\Image_{CurrentPreview}.jpg");
-            //RenderPreview.SizeMode = PictureBoxSizeMode.StretchImage;
+            RenderPreview.Image = Image.FromFile($"Config\\Image_{CurrentPreview}.jpg");
+            RenderPreview.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void MagickTask(object sender, EventArgs e)
@@ -75,7 +75,7 @@ namespace RTAVisualiser.Forms
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("EXCEPTION: (" + ex.Message + "): " + ex);
+                    Console.WriteLine($"MainForm.cs:78:- EXCEPTION CAUGHT: {ex.Message}");
                     return;
                 }
             }
@@ -86,13 +86,13 @@ namespace RTAVisualiser.Forms
         }
         private void RaytracerTask(object sender, EventArgs e)
         {
-            Raytracer.Task.Exited -= RaytracerTask;
             CoreMapper.Update();
         }
         private void Magick_Exited(object sender, EventArgs e)
         {
             Thread.Sleep(2000);
             this.Invoke(new MethodInvoker(() => UpdatePreview()));
+            Raytracer.Task.Exited -= MagickTask;
         }
 
         private void RenderButton_Click(object sender, EventArgs e)
@@ -134,8 +134,8 @@ namespace RTAVisualiser.Forms
             ConfigDomain.SetResolutionWidth(Convert.ToInt32(res[0]));
             ConfigDomain.SetResolutionHeight(Convert.ToInt32(res[1]));
 
-            Raytracer.Launch("preview");
             Raytracer.Task.Exited += MagickTask;
+            Raytracer.Launch("preview");
         }
         private void FPSCBox_SelectedIndexChanged(object sender, EventArgs e)
         {

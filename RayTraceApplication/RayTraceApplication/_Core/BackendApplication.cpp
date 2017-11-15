@@ -50,7 +50,7 @@ void BackendApplication::Initialise(bool preview)
 		RTAParameters::LoadParametersCSV("Config\\PreviewBackendConfiguration.txt");
 	}
 
-	RTAParameters::DisplayParameters(); 
+	RTAParameters::DisplayParameters();
 
 	std::stringstream ss1, ss2, ss3, ss4, ss5, ss6;
 	ss1 << "mkdir \"" << RTAParameters::MP4OutputPath << "\"" << std::endl;
@@ -124,7 +124,9 @@ void BackendApplication::Run(void)
 		{
 			MemoryPoolManager::Instance()->GenerateReport("Frame_" + std::to_string(frame + 1));
 			MemoryPoolManager::Instance()->ExportReport();
-			MethodProfiler::ExportReport();
+
+			if (RTAParameters::MethodProfiling)
+				MethodProfiler::ExportReport();
 		}
 	}
 

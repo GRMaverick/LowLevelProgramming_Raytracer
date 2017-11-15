@@ -7,6 +7,8 @@
 #include "BoundingSphere.h"
 #include "MethodProfiler.h"
 
+#include "RTAParameters.h"
+
 
 float Mix(const float &a, const float &b, const float &mix)
 {
@@ -214,7 +216,9 @@ Vector3 Tracing::Trace(const Vector3 &rayorig, const Vector3 &raydir, Sphere* sp
 	const Sphere* sphere = NULL;
 	Vector3 surfaceColor = 0; // color of the ray/surfaceof the object intersected by the ray
 
-	MethodProfiler::StartTracking(std::string(__FUNCTION__), std::string("Trace_" + std::to_string(depth)), iteration);
+	if (RTAParameters::MethodProfiling)
+		MethodProfiler::StartTracking(std::string(__FUNCTION__), std::string("Trace_" + std::to_string(depth)), iteration);
+
 	{
 		float tnear = INFINITY;
 
@@ -311,7 +315,9 @@ Vector3 Tracing::Trace(const Vector3 &rayorig, const Vector3 &raydir, Sphere* sp
 			}
 		}
 	}
-	MethodProfiler::EndTracking(std::string(__FUNCTION__), std::string("Trace_" + std::to_string(depth)));
+
+	if (RTAParameters::MethodProfiling)
+		MethodProfiler::EndTracking(std::string(__FUNCTION__), std::string("Trace_" + std::to_string(depth)));
 
 	return surfaceColor + sphere->EmissionColor;
 }

@@ -5,7 +5,7 @@
 #include <vector>
 #include <chrono>
 
-class TimerInfo
+class LLTimerInfo
 {
 public:
 	std::string																Name;
@@ -13,8 +13,8 @@ public:
 	double																	Duration;
 	std::chrono::steady_clock::time_point					StartTime;
 	std::chrono::steady_clock::time_point					EndTime;
-	TimerInfo*															pNext;
-	TimerInfo*															pPrevious;
+	LLTimerInfo*															pNext;
+	LLTimerInfo*															pPrevious;
 };
 
 class TimerLL
@@ -32,14 +32,14 @@ public:
 	void ExportReport(void);
 	
 private:
-	void DestroyList(TimerInfo* pNode);
-	void EndTrackingNode(TimerInfo* pNode, std::string name);
-	void PopulateReport(TimerInfo* pNode);
-	double GetExecutionTimeRecursive(TimerInfo* pNode, std::string name);
+	void DestroyList(LLTimerInfo* pNode);
+	void EndTrackingNode(LLTimerInfo* pNode, std::string name);
+	void PopulateReport(LLTimerInfo* pNode);
+	double GetExecutionTimeRecursive(LLTimerInfo* pNode, std::string name);
 
-	TimerInfo*									m_HeadNode;
-	TimerInfo*									m_TailNode;
+	LLTimerInfo*									m_HeadNode;
+	LLTimerInfo*									m_TailNode;
 
 	std::string										m_Name;
-	std::vector<TimerInfo*>				m_TimingInfo;
+	std::vector<LLTimerInfo*>				m_TimingInfo;
 };

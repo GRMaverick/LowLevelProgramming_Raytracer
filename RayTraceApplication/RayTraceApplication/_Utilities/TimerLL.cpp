@@ -10,7 +10,7 @@ TimerLL::TimerLL(std::string type)
 	m_Name = type;
 
 	m_HeadNode = nullptr;
-	m_TimingInfo = std::vector<TimerInfo*>();
+	m_TimingInfo = std::vector<LLTimerInfo*>();
 }
 TimerLL::~TimerLL(void)
 {
@@ -24,7 +24,7 @@ std::string TimerLL::GetName(void)
 
 void TimerLL::StartTracking(std::string name, int frame)
 {
-	TimerInfo* node = new TimerInfo();
+	LLTimerInfo* node = new LLTimerInfo();
 	node->pNext = nullptr;
 	node->Name = name;
 	node->Frame = frame;
@@ -54,7 +54,7 @@ void TimerLL::ExportReport(void)
 	if (ofs.is_open())
 	{
 		ofs << "ENTRY_NAME\tFRAME\tDURATION" << std::endl;
-		for (TimerInfo* info : m_TimingInfo)
+		for (LLTimerInfo* info : m_TimingInfo)
 		{
 			ofs << info->Name << "\t" << info->Frame << "\t" << GetExecutionTimeRecursive(m_HeadNode, info->Name) << std::endl;
 		}
@@ -69,7 +69,7 @@ double TimerLL::GetExecutionTime(std::string name)
 	return GetExecutionTimeRecursive(m_HeadNode, name);
 }
 
-void TimerLL::EndTrackingNode(TimerInfo* pNode, std::string name)
+void TimerLL::EndTrackingNode(LLTimerInfo* pNode, std::string name)
 {
 	if (pNode->Name != name)
 	{
@@ -83,7 +83,7 @@ void TimerLL::EndTrackingNode(TimerInfo* pNode, std::string name)
 		pNode->Duration = ms.count();
 	}
 }
-void TimerLL::PopulateReport(TimerInfo* pNode)
+void TimerLL::PopulateReport(LLTimerInfo* pNode)
 {
 	if (pNode)
 	{
@@ -91,7 +91,7 @@ void TimerLL::PopulateReport(TimerInfo* pNode)
 		PopulateReport(pNode->pNext);
 	}
 }
-void TimerLL::DestroyList(TimerInfo* pNode)
+void TimerLL::DestroyList(LLTimerInfo* pNode)
 {
 	if (pNode->pNext)
 	{
@@ -99,7 +99,7 @@ void TimerLL::DestroyList(TimerInfo* pNode)
 	}
 	delete pNode;
 }
-double TimerLL::GetExecutionTimeRecursive(TimerInfo* pNode, std::string name)
+double TimerLL::GetExecutionTimeRecursive(LLTimerInfo* pNode, std::string name)
 {
 	while (pNode != nullptr)
 		if (pNode->Name == name)

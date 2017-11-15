@@ -81,8 +81,13 @@ namespace RTAVisualiser.Repositories
                     }
                 }
             }
-            catch(Exception ex)
+            catch(FormatException ex)
             {
+                Console.WriteLine($"ReportRepository.cs:86:- EXCEPTION CAUGHT: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"ReportRepository.cs:90:- EXCEPTION CAUGHT: {ex.Message}");
             }
         }
         private void FetchLatestThreadTimeData(string path)
@@ -110,6 +115,7 @@ namespace RTAVisualiser.Repositories
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"ReportRepository.cs:113:- EXCEPTION CAUGHT: {ex.Message}");
             }
         }
 
