@@ -39,8 +39,21 @@
             this.ResCBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.CompilerOptimisationCB = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Sphere = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Radius = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SurfaceColour = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reflection = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Transparency = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmissionColour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.BaselineCheckBox = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.ThreadCountNUD = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.PhysicsTickBox = new System.Windows.Forms.CheckBox();
@@ -50,7 +63,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.button1 = new System.Windows.Forms.Button();
+            this.RenderButton = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -67,13 +80,15 @@
             this.ThreadingCartesian = new LiveCharts.WinForms.CartesianChart();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RenderPreview)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ThreadCountNUD)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -193,6 +208,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBox8);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(6, 9);
@@ -202,8 +218,43 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Configuration";
             // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.label5);
+            this.groupBox8.Controls.Add(this.CompilerOptimisationCB);
+            this.groupBox8.Location = new System.Drawing.Point(428, 20);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(379, 152);
+            this.groupBox8.TabIndex = 2;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Optimisation";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(22, 68);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Compiler Optimisation:";
+            // 
+            // CompilerOptimisationCB
+            // 
+            this.CompilerOptimisationCB.FormattingEnabled = true;
+            this.CompilerOptimisationCB.Items.AddRange(new object[] {
+            "None",
+            "/O2: Maximum Running Speed",
+            "/Ox: Full Optimisation",
+            "/Oy: Omit Frame Pointers"});
+            this.CompilerOptimisationCB.Location = new System.Drawing.Point(138, 65);
+            this.CompilerOptimisationCB.Name = "CompilerOptimisationCB";
+            this.CompilerOptimisationCB.Size = new System.Drawing.Size(207, 21);
+            this.CompilerOptimisationCB.TabIndex = 0;
+            this.CompilerOptimisationCB.SelectedIndexChanged += new System.EventHandler(this.CompilerOptimisationCB_SelectedIndexChanged);
+            // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.dataGridView1);
             this.groupBox3.Location = new System.Drawing.Point(6, 179);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(802, 269);
@@ -211,8 +262,64 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Scene Objects";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Sphere,
+            this.Radius,
+            this.Position,
+            this.SurfaceColour,
+            this.Reflection,
+            this.Transparency,
+            this.EmissionColour});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(796, 250);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Sphere
+            // 
+            this.Sphere.HeaderText = "Name";
+            this.Sphere.Name = "Sphere";
+            // 
+            // Radius
+            // 
+            this.Radius.HeaderText = "Radius";
+            this.Radius.Name = "Radius";
+            // 
+            // Position
+            // 
+            this.Position.HeaderText = "Position";
+            this.Position.Name = "Position";
+            // 
+            // SurfaceColour
+            // 
+            this.SurfaceColour.HeaderText = "Surface Colour";
+            this.SurfaceColour.Name = "SurfaceColour";
+            // 
+            // Reflection
+            // 
+            this.Reflection.HeaderText = "Reflection";
+            this.Reflection.Name = "Reflection";
+            // 
+            // Transparency
+            // 
+            this.Transparency.HeaderText = "Transparency";
+            this.Transparency.Name = "Transparency";
+            // 
+            // EmissionColour
+            // 
+            this.EmissionColour.HeaderText = "EmissionColour";
+            this.EmissionColour.Name = "EmissionColour";
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.BaselineCheckBox);
             this.groupBox2.Controls.Add(this.checkBox1);
             this.groupBox2.Controls.Add(this.ThreadCountNUD);
             this.groupBox2.Controls.Add(this.label4);
@@ -226,10 +333,32 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(6, 19);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(802, 154);
+            this.groupBox2.Size = new System.Drawing.Size(416, 154);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Renderer";
+            // 
+            // BaselineCheckBox
+            // 
+            this.BaselineCheckBox.AutoSize = true;
+            this.BaselineCheckBox.Location = new System.Drawing.Point(214, 23);
+            this.BaselineCheckBox.Name = "BaselineCheckBox";
+            this.BaselineCheckBox.Size = new System.Drawing.Size(113, 17);
+            this.BaselineCheckBox.TabIndex = 13;
+            this.BaselineCheckBox.Text = "Baseline Renderer";
+            this.BaselineCheckBox.UseVisualStyleBackColor = true;
+            this.BaselineCheckBox.CheckedChanged += new System.EventHandler(this.BaselineCheckBox_CheckedChanged);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(214, 49);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(102, 17);
+            this.checkBox1.TabIndex = 12;
+            this.checkBox1.Text = "Method Profiling";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.MethodProfiling_CheckedChanged);
             // 
             // ThreadCountNUD
             // 
@@ -334,15 +463,15 @@
             this.progressBar1.Size = new System.Drawing.Size(709, 23);
             this.progressBar1.TabIndex = 2;
             // 
-            // button1
+            // RenderButton
             // 
-            this.button1.Location = new System.Drawing.Point(718, 469);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Render";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.RenderButton_Click);
+            this.RenderButton.Location = new System.Drawing.Point(718, 469);
+            this.RenderButton.Name = "RenderButton";
+            this.RenderButton.Size = new System.Drawing.Size(102, 23);
+            this.RenderButton.TabIndex = 3;
+            this.RenderButton.Text = "Render";
+            this.RenderButton.UseVisualStyleBackColor = true;
+            this.RenderButton.Click += new System.EventHandler(this.RenderButton_Click);
             // 
             // tabControl1
             // 
@@ -382,7 +511,7 @@
             this.ConsoleOutputTB.Location = new System.Drawing.Point(6, 6);
             this.ConsoleOutputTB.Name = "ConsoleOutputTB";
             this.ConsoleOutputTB.ReadOnly = true;
-            this.ConsoleOutputTB.Size = new System.Drawing.Size(812, 420);
+            this.ConsoleOutputTB.Size = new System.Drawing.Size(812, 482);
             this.ConsoleOutputTB.TabIndex = 0;
             this.ConsoleOutputTB.Text = "";
             // 
@@ -402,7 +531,7 @@
             this.tabPage5.Controls.Add(this.tabControl2);
             this.tabPage5.Controls.Add(this.tabControl1);
             this.tabPage5.Controls.Add(this.progressBar1);
-            this.tabPage5.Controls.Add(this.button1);
+            this.tabPage5.Controls.Add(this.RenderButton);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
@@ -525,17 +654,6 @@
             this.tabPage9.Text = "Method Calling";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(215, 23);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(102, 17);
-            this.checkBox1.TabIndex = 12;
-            this.checkBox1.Text = "Method Profiling";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.MethodProfiling_CheckedChanged);
-            // 
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(1904, 1041);
@@ -549,6 +667,10 @@
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RenderPreview)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ThreadCountNUD)).EndInit();
@@ -591,7 +713,7 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private LiveCharts.WinForms.CartesianChart cartesianChart1;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button RenderButton;
         private System.Windows.Forms.CheckBox ConcurrentTickBox;
         private System.Windows.Forms.NumericUpDown ThreadCountNUD;
         private System.Windows.Forms.Label label4;
@@ -613,5 +735,17 @@
         private System.Windows.Forms.GroupBox groupBox7;
         private LiveCharts.WinForms.CartesianChart ThreadingCartesian;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox CompilerOptimisationCB;
+        private System.Windows.Forms.CheckBox BaselineCheckBox;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sphere;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Radius;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Position;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SurfaceColour;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Reflection;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Transparency;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmissionColour;
     }
 }

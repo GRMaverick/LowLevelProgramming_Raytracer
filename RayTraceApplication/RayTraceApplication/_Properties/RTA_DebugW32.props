@@ -5,6 +5,7 @@
   <PropertyGroup>
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(ProjectDir)_Core;$(ProjectDir)_Configuration;$(ProjectDir)_Mathematics;$(ProjectDir)_Memory;$(ProjectDir)_Objects;$(ProjectDir)_Rendering;$(ProjectDir)_Physics;$(ProjectDir)_Utilities;$(IncludePath)</IncludePath>
     <SourcePath>$(VC_SourcePath);$(ProjectDir)_Core;$(ProjectDir)_Configuration;$(ProjectDir)_Mathematics;$(ProjectDir)_Memory;$(ProjectDir)_Objects;$(ProjectDir)_Rendering;$(ProjectDir)_Physics;$(ProjectDir)_Utilities;$(SourcePath)</SourcePath>
+    <TargetName>$(ProjectName)_$(Configuration)</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup />
   <ItemGroup />

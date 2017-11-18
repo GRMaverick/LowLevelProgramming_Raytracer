@@ -11,6 +11,7 @@ namespace RTAVisualiser.App
 {
     public class MagickImageProcessor : ITerminalInstruction
     {
+        private string Args { get; set; } = null;
         private IAppSettings AppSettings { get; set; } = null;
         public System.Diagnostics.Process Task { get; set; } = new System.Diagnostics.Process();
 
@@ -23,7 +24,7 @@ namespace RTAVisualiser.App
             Task.OutputDataReceived += (sender, args) => Console.WriteLine(args.Data);
             Task.ErrorDataReceived += (sender, args) => Console.WriteLine(args.Data);
         }
-        public void Launch(string arguments = "")
+        public void Launch()
         {
             Task.StartInfo.FileName = "cmd.exe";
             Task.StartInfo.CreateNoWindow = true;
@@ -31,9 +32,9 @@ namespace RTAVisualiser.App
             Task.StartInfo.RedirectStandardOutput = true;
             Task.StartInfo.RedirectStandardError = true;
             Task.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-            Task.StartInfo.Arguments = $"/C .\\RTA_Deliverable\\PPMtoJPG.cmd {arguments}";
+            Task.StartInfo.Arguments = $"/C .\\RTA_Deliverable\\PPMtoJPG.cmd {Args}";
 
-            Console.WriteLine($"Launching .\\RTA_Deliverable\\PPMtoJPG.cmd {arguments}");
+            Console.WriteLine($"Launching .\\RTA_Deliverable\\PPMtoJPG.cmd {Args}");
             Task.Start();
 
             if (Task.HasExited)
@@ -41,6 +42,10 @@ namespace RTAVisualiser.App
                 Task.BeginOutputReadLine();
                 Task.BeginErrorReadLine();
             }
+        }
+        public void SetArguments(string arguments)
+        {
+            Args = arguments;
         }
 
         private void Task_Exited(object sender, EventArgs e)

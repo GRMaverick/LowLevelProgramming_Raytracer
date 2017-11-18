@@ -1,15 +1,10 @@
-echo off
+@echo off
 set arg1=%1
 
-IF "%arg1%"=="baseline" (
-    ECHO Launching Baseline Raytracer Application
-)
-IF "%arg1%"=="O2" (
-    ECHO Launching Raytracer Application for MAXIMUM SPEED
-)
-IF "%arg1%"=="Ox" (
-    ECHO Launching Raytracer Application with FULL OPTIMISATION
-)
-IF "%arg1%"=="Oy" (
-    ECHO Launching Raytracer Application with FASTER METHOD CALLS
-)
+if %arg1%==preview RTA_Deliverable\Debug\RayTraceApplication_Debug.exe preview
+if %arg1%==baseline RTA_Deliverable\Debug_Baseline\RayTraceApplication_Debug_Baseline.exe
+if %arg1%==O2 RTA_Deliverable\Debug_O2\RayTraceApplication_Debug_O2.exe 
+if %arg1%==Ox RTA_Deliverable\Debug_OX\RayTraceApplication_Debug_OX.exe 
+if %arg1%==Oy RTA_Deliverable\Debug_OY\RayTraceApplication_Debug_OY.exe 
+
+ECHO Done.

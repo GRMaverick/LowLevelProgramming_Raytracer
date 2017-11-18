@@ -34,8 +34,6 @@ void BackendApplication::Initialise(bool preview)
 {
 	std::cout << "======= Ray Tracing Application =======" << std::endl << std::endl;
 	std::cout << "==== Initialising Backend Application ====" << std::endl << std::endl;
-	std::cout << "======= Loading: Render Config =======" << std::endl << std::endl;
-	std::cout << "==== Executing Backend Application ====" << std::endl << std::endl;
 
 	m_Preview = preview;
 

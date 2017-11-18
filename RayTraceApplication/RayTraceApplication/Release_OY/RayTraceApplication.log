@@ -1,0 +1,37 @@
+﻿  BackendApplication.cpp
+  Rendering.cpp
+_Rendering\Rendering.cpp(37): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+_Rendering\Rendering.cpp(44): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+_Rendering\Rendering.cpp(45): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+_Rendering\Rendering.cpp(84): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+_Rendering\Rendering.cpp(92): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+_Rendering\Rendering.cpp(93): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+_Rendering\Rendering.cpp(115): warning C4018: '<': signed/unsigned mismatch
+_Rendering\Rendering.cpp(149): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+_Rendering\Rendering.cpp(176): warning C4018: '<': signed/unsigned mismatch
+_Rendering\Rendering.cpp(178): warning C4018: '<': signed/unsigned mismatch
+_Rendering\Rendering.cpp(180): warning C4018: '>=': signed/unsigned mismatch
+_Rendering\Rendering.cpp(180): warning C4018: '<': signed/unsigned mismatch
+_Rendering\Rendering.cpp(182): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+_Rendering\Rendering.cpp(183): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+_Rendering\Rendering.cpp(213): warning C4018: '<': signed/unsigned mismatch
+_Rendering\Rendering.cpp(237): warning C4018: '<': signed/unsigned mismatch
+_Rendering\Rendering.cpp(239): warning C4018: '<': signed/unsigned mismatch
+_Rendering\Rendering.cpp(241): warning C4018: '>=': signed/unsigned mismatch
+_Rendering\Rendering.cpp(241): warning C4018: '<': signed/unsigned mismatch
+_Rendering\Rendering.cpp(243): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+_Rendering\Rendering.cpp(244): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  main.cpp
+main.cpp(116): warning C4305: 'argument': truncation from 'double' to 'float'
+main.cpp(117): warning C4305: 'argument': truncation from 'double' to 'float'
+main.cpp(118): warning C4305: 'argument': truncation from 'double' to 'float'
+main.cpp(119): warning C4305: 'argument': truncation from 'double' to 'float'
+main.cpp(121): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+main.cpp(122): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Generating code
+  3 of 1258 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    39 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  RayTraceApplication.vcxproj -> C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RayTraceApplication\Release_OY\RayTraceApplication_Release_OY.exe
+  RayTraceApplication.vcxproj -> C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RayTraceApplication\Release_OY\RayTraceApplication_Release_OY.pdb (Full PDB)

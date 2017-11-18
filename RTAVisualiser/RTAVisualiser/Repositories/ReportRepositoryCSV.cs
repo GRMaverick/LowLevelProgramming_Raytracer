@@ -52,9 +52,9 @@ namespace RTAVisualiser.Repositories
                         LastRenderCheck = currentDirectory;
                     }
                 }
-                catch
+                catch(Exception ex)
                 {
-                    Console.WriteLine(s + ": is not valid as a DateTime object..");
+                    Console.WriteLine($"{s}: {ex.Message} - Does not conform to a Parsable TZ string");
                 }
             }
         }

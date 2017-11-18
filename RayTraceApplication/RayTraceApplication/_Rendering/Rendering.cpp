@@ -196,7 +196,7 @@ void Renderer::ParallelRender(Sphere* spheres[], int sphereCount, int iteration,
 				threadArray[i].join();
 			}
 		}
-
+		
 		TimerManager::Instance()->GetTimer("Frames")->EndTracking("Frame_" + std::to_string(iteration));
 
 		std::cout << ">> Frame " << iteration << ": Render Threads complete - Execution Time: " << TimerManager::Instance()->GetTimer("Frames")->GetExecutionTime("Frame_" + std::to_string(iteration)) << std::endl;
@@ -250,8 +250,8 @@ void Renderer::RenderThread(int threadID, int start, int end, Vector3* pixel, Sp
 		}
 	}
 	TimerManager::Instance()->GetTimer("RenderThreads")->EndTracking(threadTimerID);
-#ifdef _DEBUG
+//#ifdef _DEBUG
 	std::cout << ">> RenderThread_" << threadID << ": Execution Time: " << TimerManager::Instance()->GetTimer("RenderThreads")->GetExecutionTime(threadTimerID) << std::endl;
-#endif
+//#endif
 }
 

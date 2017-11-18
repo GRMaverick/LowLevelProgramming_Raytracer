@@ -1,15 +1,2 @@
-﻿  BackendApplication.cpp
-  Generating code
-  3 of 1262 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    21 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-Rendering.obj : warning LNK4020: a type record in 'c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-Tracing.obj : warning LNK4020: a type record in 'c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-FfmpegUtility.obj : warning LNK4020: a type record in 'c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-MethodProfiler.obj : warning LNK4020: a type record in 'c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-Timer.obj : warning LNK4020: a type record in 'c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-TimerLL.obj : warning LNK4020: a type record in 'c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-TimerManager.obj : warning LNK4020: a type record in 'c:\users\maverick\source\repos\lowlevelprogramming_assignment\raytraceapplication\raytraceapplication\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-  RayTraceApplication.vcxproj -> C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RayTraceApplication\Release\RayTraceApplication.exe
-  RayTraceApplication.vcxproj -> C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RayTraceApplication\Release\RayTraceApplication.pdb (Full PDB)
+﻿  RayTraceApplication.vcxproj -> C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RayTraceApplication\Release\RayTraceApplication_Release.exe
+  RayTraceApplication.vcxproj -> C:\Users\Maverick\Source\Repos\LowLevelProgramming_Assignment\RayTraceApplication\Release\RayTraceApplication_Release.pdb (Full PDB)

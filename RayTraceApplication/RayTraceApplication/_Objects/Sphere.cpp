@@ -19,13 +19,13 @@ Sphere::Sphere(const Vector3& center, const float& radius, const Vector3& surfac
 	EmissionColor = emissionColor;
 	RadiusSquared = Radius * Radius;
 
-	BoundingVolume = new BoundingSphere(Center, Radius + 1.0f);
+	//BoundingVolume = new BoundingSphere(Center, Radius + 1.0f);
 
 	Velocity = Vector3(0);
 }
 Sphere::~Sphere(void)
 {
-	if(BoundingVolume) delete BoundingVolume;
+	//if(BoundingVolume) delete BoundingVolume;
 }
 
 void* Sphere::operator new(size_t size)

@@ -62,6 +62,7 @@ namespace RTAVisualiser.Forms
         {
             RenderPreview.Image = Image.FromFile($"Config\\Image_{CurrentPreview}.jpg");
             RenderPreview.SizeMode = PictureBoxSizeMode.StretchImage;
+            Raytracer.SetArguments("");
         }
 
         private void MagickTask(object sender, EventArgs e)
@@ -71,7 +72,8 @@ namespace RTAVisualiser.Forms
             {
                 try
                 {
-                    this.Invoke(new MethodInvoker(() => Magick.Launch(CurrentPreview)));
+                    Magick.SetArguments(CurrentPreview);
+                    this.Invoke(new MethodInvoker(() => Magick.Launch()));
                 }
                 catch (Exception ex)
                 {
@@ -81,7 +83,8 @@ namespace RTAVisualiser.Forms
             }
             else
             {
-                Magick.Launch(CurrentPreview);
+                Magick.SetArguments(CurrentPreview);
+                Magick.Launch();
             }
         }
         private void RaytracerTask(object sender, EventArgs e)
@@ -135,7 +138,8 @@ namespace RTAVisualiser.Forms
             ConfigDomain.SetResolutionHeight(Convert.ToInt32(res[1]));
 
             Raytracer.Task.Exited += MagickTask;
-            Raytracer.Launch("preview");
+            Raytracer.SetArguments("preview");
+            Raytracer.Launch();
         }
         private void FPSCBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -154,6 +158,71 @@ namespace RTAVisualiser.Forms
         {
             CheckBox cb = (CheckBox)sender;
             ConfigDomain.SetMethodProfiling(cb.Checked);
+        }
+
+        private void CompilerOptimisationCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string optimisation = ((ComboBox)sender).Text;
+            if (optimisation == "None")
+            {
+                Raytracer.SetArguments("");
+            }
+            else if(optimisation =="/O2: Maximum Running Speed")
+            {
+                Raytracer.SetArguments("O2");
+            }
+            else if (optimisation == "/Ox: Full Optimisation")
+            {
+                Raytracer.SetArguments("Ox");
+            }
+            else if (optimisation == "/Oy: Omit Frame Pointers")
+            {
+                Raytracer.SetArguments("Oy");
+            }
+            else
+            {
+                Raytracer.SetArguments(optimisation);
+            }
+
+        }
+
+        private void BaselineCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = (CheckBox)sender;
+
+            ConcurrentTickBox.Enabled = !cb.Checked;
+            ThreadCountNUD.Enabled = !cb.Checked;
+            ResCBox.Enabled = !cb.Checked;
+            PhysicsTickBox.Enabled = !cb.Checked;
+            FramesTB.Enabled = !cb.Checked;
+            FPSCBox.Enabled = !cb.Checked;
+
+            if (cb.Checked) Raytracer.SetArguments("baseline");
+            else
+            {
+                if (CompilerOptimisationCB.Text == "None")
+                {
+                    Raytracer.SetArguments("");
+                }
+                else
+                {
+                    string s = CompilerOptimisationCB.Text;
+                    Raytracer.SetArguments(CompilerOptimisationCB.Text);
+                }
+            }
+        }
+
+
+        private void DataGridView1_DataMemberChanged(object sender, System.EventArgs e)
+        {
+            DataGridView dgvSender = (DataGridView)sender;
+
+            Console.WriteLine($"Data inputted = {dgvSender.DataMember}");
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

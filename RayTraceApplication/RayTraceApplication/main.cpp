@@ -20,16 +20,43 @@ int main(int argc, char* argv[])
 	bool bPreview = false;
 	bool bBaseline = false;
 
+#if _DEBUG
+	std::cout << "Debug Executable - ";
+	#ifdef MaxSpeedOptimisation
+		std::cout << "Executing with Maximum Speed Optimisation" << std::endl;	
+	#endif
+	#ifdef FullOptimisation
+		std::cout << "Executing with Full Optimisation" << std::endl;
+	#endif
+	#ifdef MethodCallOptimisation
+		std::cout << "Executing with Method Call Optimisation" << std::endl;
+	#endif
+	#ifdef Baseline
+		std::cout << "Executing Baseline" << std::endl;
+		bBaseline = true;
+	#endif
+#else
+	std::cout << "Release Executable - ";
+	#ifdef MaxSpeedOptimisation
+		std::cout << "Executing with Maximum Speed Optimisation" << std::endl;
+	#endif
+	#ifdef FullOptimisation
+		std::cout << "Executing with Full Optimisation" << std::endl;
+	#endif
+	#ifdef MethodCallOptimisation
+		std::cout << "Executing with Method Call Optimisation" << std::endl;
+	#endif
+	#ifdef Baseline
+		std::cout << "Executing Baseline" << std::endl;
+		bBaseline = true;
+	#endif
+#endif
+
 	if (argc == 2)
 	{
 		if (std::string(argv[1]) == "preview")
 		{
 			bPreview = true;
-		}
-		else if (std::string(argv[1]) == "baseline")
-		{
-			std::cout << "Baseline selected" << std::endl;
-			bBaseline = true;
 		}
 		else
 		{
@@ -52,6 +79,8 @@ int main(int argc, char* argv[])
 		return 0;
 	}
 }
+#include <sstream>
+
 #include "Timer.h"
 #include "Sphere.h"
 #include "Vector3.h"
@@ -64,11 +93,25 @@ void SmoothScaling()
 	
 	TimerManager::Instance()->CreateTimer("Frames");
 
-	RTAParameters::ResolutionWidth = 1920; 
-	RTAParameters::ResolutionHeight = 1920;
-	RTAParameters::FilenameTemplate = "Sphere_";
+	std::cout << "======= Loading: Baseline Render Config =======" << std::endl << std::endl;
+	RTAParameters::LoadParametersCSV("Config\\BackendConfiguration.txt");
 
-	for (float r = 0; r <= 100; r++)
+	std::stringstream ss1, ss2, ss3, ss4, ss5, ss6;
+	ss1 << "mkdir \"" << RTAParameters::MP4OutputPath << "\"" << std::endl;
+	ss2 << "mkdir \"" << RTAParameters::PPMOutputPath << "\"" << std::endl;
+	ss3 << "mkdir \"" << RTAParameters::ReportPath << "\"" << std::endl;
+	ss4 << "mkdir \"" << RTAParameters::ReportPath << "Memory\\\"" << std::endl;
+	ss5 << "mkdir \"" << RTAParameters::ReportPath << "Timings\\\"" << std::endl;
+	ss6 << "mkdir \"" << RTAParameters::ReportPath << "MethodCalls\\\"" << std::endl;
+
+	std::system(ss1.str().c_str());
+	std::system(ss2.str().c_str());
+	std::system(ss3.str().c_str());
+	std::system(ss4.str().c_str());
+	std::system(ss5.str().c_str());
+	std::system(ss6.str().c_str());
+
+	for (float r = 0; r <= 10; r++)
 	{
 		spheres.push_back(Sphere(Vector3(0.0, -10004, -20), 10000, Vector3(0.20, 0.20, 0.20), 0, 0.0));
 		spheres.push_back(Sphere(Vector3(0.0, 0, -20), r / 100, Vector3(1.00, 0.32, 0.36), 1, 0.5));

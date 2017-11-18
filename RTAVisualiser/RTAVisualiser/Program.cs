@@ -9,7 +9,7 @@ namespace RTAVisualiser
     static class Program
     {
         private readonly static IUnityContainer appBuilder = AppBuilder.Configure();
-
+        
         [STAThread]
         static void Main()
         {

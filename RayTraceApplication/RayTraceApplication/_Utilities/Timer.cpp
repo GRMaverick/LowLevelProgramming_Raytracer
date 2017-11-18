@@ -69,7 +69,7 @@ void Timer::EndTracking(std::string name)
 
 void Timer::ExportReport(void)
 {
-	std::ofstream ofs(std::string(RTAParameters::ReportPath + "\\Timings\\" + m_Name + "_TimingInfo.csv").c_str(), std::ofstream::out);
+	std::ofstream ofs(std::string(RTAParameters::ReportPath + "Timings\\" + m_Name + "_TimingInfo.csv").c_str(), std::ofstream::out);
 	if (ofs.is_open())
 	{
 		ofs << "NAME\tFRAME\tDURATION" << std::endl;
@@ -81,7 +81,7 @@ void Timer::ExportReport(void)
 	}
 	else
 	{
-		std::cout << std::string(RTAParameters::ReportPath + "\\Timings\\" + m_Name + "_TimingInfo.csv").c_str() << ": File IO FAILED!" << std::endl;
+		std::cout << std::string(RTAParameters::ReportPath + "Timings\\" + m_Name + "_TimingInfo.csv").c_str() << ": File IO FAILED!" << std::endl;
 		return;
 	}
 }

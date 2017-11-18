@@ -13,6 +13,7 @@ namespace RTAVisualiser.App
     {
         private RichTextBox TextBox { get; set; } = null;
         private IAppSettings AppSettings { get; set; } = null;
+        private string Args { get; set; } = null;
         public System.Diagnostics.Process Task { get; set; } = new System.Diagnostics.Process();
 
         public Raytracer(IAppSettings settings)
@@ -25,7 +26,7 @@ namespace RTAVisualiser.App
             Task.ErrorDataReceived += (sender, args) => Console.WriteLine(args.Data);
         }
 
-        public void Launch(string arguments = "")
+        public void Launch()
         {
             Task.StartInfo.FileName = "cmd.exe";
             Task.StartInfo.CreateNoWindow = true;
@@ -33,12 +34,16 @@ namespace RTAVisualiser.App
             Task.StartInfo.RedirectStandardOutput = true;
             Task.StartInfo.RedirectStandardError = true;
             Task.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-            Task.StartInfo.Arguments = $"/C {AppSettings.RTAppExecutablePath} {arguments}";
+            Task.StartInfo.Arguments = $"/C {AppSettings.RTAppExecutablePath} {Args}";
 
-            Console.WriteLine($"Launching {AppSettings.RTAppExecutablePath} {arguments}");
+            Console.WriteLine($"Launching {AppSettings.RTAppExecutablePath} {Args}");
             Task.Start();
             Task.BeginOutputReadLine();
             Task.BeginErrorReadLine();
+        }
+        public void SetArguments(string arguments)
+        {
+            Args = arguments;
         }
 
         public void Task_Exited(object sender, EventArgs e)
