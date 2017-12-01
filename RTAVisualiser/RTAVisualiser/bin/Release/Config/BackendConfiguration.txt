@@ -1,10 +1,10 @@
 ResolutionWidth	1920
 ResolutionHeight	1080
 FPS	60
-MaxFrames	10
-MP4OutputPath	Output\PreviewRender\MP4\
-PPMOutputPath	Output\PreviewRender\PPM\
-ReportPath	Output\PreviewRender\Reports\
+MaxFrames	100
+MP4OutputPath	Output\2017-11-28_17-45-43\MP4\
+PPMOutputPath	Output\2017-11-28_17-45-43\PPM\
+ReportPath	Output\2017-11-28_17-45-43\Reports\
 FilenameTemplate	SpheresFrame_
 Parallel	True
 Threads	8
